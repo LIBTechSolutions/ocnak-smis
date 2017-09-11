@@ -1,0 +1,19 @@
+.top-bar, .top-bar ul {
+  background-color: $nav-background;
+}
+
+.top-bar {
+  .menu-text {
+    color: $nav-text-color;
+  }
+}
+
+.logout {
+  text-align: center;
+  color: $nav-text-color;
+  cursor: pointer;
+}
+
+a {
+  color: $nav-text-color;
+}

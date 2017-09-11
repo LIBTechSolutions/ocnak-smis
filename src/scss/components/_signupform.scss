@@ -1,0 +1,355 @@
+html, body, #main, .app-container, .app-content {
+  height: 100%;
+}
+
+// .dashboard {
+//   padding-top: 51px;
+//   display: flex;
+//   height: 100vh;
+//
+//   &.show-modal {
+//     pointer-events: none;
+//   }
+// }
+
+.sidebar {
+  a {
+    color: #87CEFA;
+    font-weight: bolder;
+  }
+}
+
+.search-data{
+  width: 50px;
+  height: 40px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #262626;
+  padding-left: 35px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+ 
+  -webkit-transition: width .55s ease;
+  -moz-transition: width .55s ease;
+  -ms-transition: width .55s ease;
+  -o-transition: width .55s ease;
+  transition: width .55s ease;
+}
+
+hr {
+  margin: 1em 0;
+}
+
+.table-list {
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  margin-bottom: 20px;
+
+  td, th {
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    color: $grey;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    vertical-align: bottom;
+  }
+
+  tbody {
+
+    tr {
+      background: rgba(white, 0.5);
+      border-bottom: 0.5rem solid #E8EFEE;
+
+      &:hover {
+        background: #B9BABD;
+        cursor: pointer;
+        color: #3A6176;
+      }
+    }
+  }
+}
+.fee-grade-btn {
+  width: 100%;
+  display: flex;
+  align-items: right;
+}
+
+.eidsr-data {
+  background: #E8EFEE;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  // background: rgba(0, 0, 0, 0.3);
+}
+
+.hide {
+  .fee-grade-forms {
+    display: none;
+  }
+}
+.show {
+  .fee-grade-forms {
+    display: block;
+  }
+}
+
+.split-view {
+  .eidsr-data {
+    z-index: 9997;
+    width: 100%;
+  }
+  .paris {
+    z-index: 500;
+    opacity: 0;
+    width: 100%;
+  }
+  .home-page {
+    position: absolute;
+    z-index: 9999;
+  }
+  .student{
+    // width: 300px;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 9999;
+    width: 80%;
+    height: 50%;
+    background-color: #7FDBFF;
+    opacity: 1;
+    border-radius: 5px;
+  }
+}
+
+.student-profile {
+  background-color: #428BCA;
+  border-radius: 5px;
+}
+.home-page {
+  padding: 1rem;
+  margin-left: -13rem;
+  justify-content: center;
+  width: 60%;
+  background: rgba($dark-grey, 0.8);
+  top: 80px;
+  bottom: 0;
+}
+
+.student-form {
+  background-color: $light-grey;
+  align-items: center;
+  border: 2px solid $light-grey-border;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.full-view {
+  .eidsr-data {
+    width: 100%;
+  }
+  .student {
+    width: 0%;
+    height: 10%;
+    opacity: 0;
+  }
+  .fee-grade-forms {
+    display: none;
+  }
+}
+
+.eidsr-form__header,
+.eidsr-data__header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: left !important;
+  background: $dark-blue;
+  border-radius: 5px;
+}
+
+.home {
+  background: url(../static/images/techsol-new-logo.jpg);
+  color: white;
+  height: 100%;
+  padding-top: 10%;
+  box-sizing: border-box;
+
+  .logo {
+    background-size: 32%;
+    padding: 0 0 0 180px;
+    width: 500px;
+    height: 200px;
+    margin: 2% auto;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 0 0;
+    span {
+      display: block;
+      font-family: 'Roboto-light';
+      color: #931000;
+      font-size: 0.8em;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    padding: 0 0 $padding-unit;
+    width: 100%;
+  }
+
+  input {
+    flex:4;
+    padding: 0.6em 1em 0.7em;
+  }
+
+  .login {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    max-width: 800px;
+    min-width: 400px;
+    padding: 3% 6% 4%;
+    margin: 2% auto;
+    background: rgba(white, 0.2);
+    background: #507AB9;
+  }
+
+  .btn {
+    margin: 0 0 0 $padding-unit;
+    flex: 1;
+  }
+
+  .login-alert {
+    padding: 0.6em 1em 0.7em;
+    border-radius: 4px 0 0 4px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.3s;
+  }
+
+  .login-alert.active + input {
+    box-shadow: 1px 1px 1px rgba($grey, 1) inset;
+    color: $danger;
+  }
+
+  .login-alert:not(.active) {
+    max-width: 0;
+    padding: 0.6em 0 0.7em;
+  }
+}
+
+
+.profile {
+  width: 60%;
+  text-align: center;
+  .name {
+    color: grey;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+  }
+}
+
+.student-data {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  h4 {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: powderblue;
+  }
+}
+
+.profile td {
+  vertical-align: top;
+}
+
+img {
+  align-items: center;
+  border: 2px solid powderblue;
+  border-radius: 50%;
+  display: flex;
+  height: 14rem;
+  justify-content: center;
+  width: 14rem;
+  margin-left: 7rem;
+}
+
+img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.separate td {
+   border-top: 1px solid rgb(221, 221, 221);
+   font-size: 1.1rem;
+   text-align: justify;
+}
+
+.title-padding {
+padding-left: 4rem;
+}
+
+.paris {
+    background: url(../static/images/school.jpg);
+    margin: auto;
+    width: 40%;
+    border: 3px solid green;
+    padding: 10px;
+    height: 30rem;
+    margin-top: 5rem;
+}
+
+.city {
+  float: left;
+  margin: 3rem;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+.newyork {
+  float: right;
+  margin: 3rem;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+  margin-top: -32rem;
+}
+
+.school-name {
+  background-color: powderblue;
+  border-bottom: 2px solid blue;
+  h1 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: lighter;
+  }
+}
+
+.grades-btn {
+  display: flex;
+  .btn {
+  padding: 1rem;
+  margin-right: 2rem;
+  }
+}

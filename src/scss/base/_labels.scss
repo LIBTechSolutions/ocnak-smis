@@ -1,0 +1,32 @@
+.label,
+.badge {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 1px 6px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: white;
+  background: $mid-grey;
+}
+
+.badge {
+  vertical-align: super;
+  text-align: center;
+  padding: 1px 5px;
+  height: 18px;
+  min-width: 18px;
+}
+
+.label.case-status {
+  border-radius: 2px;
+}
+
+.label.patient-status {
+  font-size: 0.7em;
+  line-height: 1.1em;
+  padding: 1px 4px;
+  vertical-align: super;
+  background: rgba($mid-grey, 0.2);
+  color: $grey;
+  margin-left: 2px;
+}

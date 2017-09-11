@@ -1,0 +1,186 @@
+.btn {
+  border: none;
+  color: white;
+  font-size: 1em;
+  font-family: 'Roboto-regular';
+  font-weight: normal;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 0.5em 1em 0.6em;
+  margin: 0.3em;
+  background: $action-color;
+  box-shadow: 1px 1px 2px rgba($font-color, 0.8), 1px 1px 0px rgba(white, 0.3) inset;
+  border-radius: 4px;
+  display: inline-flex;
+  vertical-align: middle;
+
+  &:hover, &:focus, &:active {
+    background: $action-hover;
+    outline: none;
+  }
+
+  &.inactive, &:disabled {
+    opacity: 0.4;
+    background: $grey;
+    cursor: default;
+  }
+}
+
+.btn--lg {
+  font-size: 1.2em;
+  padding: 0.7em 1.2em;
+  box-shadow: 2px 2px 3px rgba($font-color, 0.8), 1px 1px 0px rgba(white, 0.3) inset;
+}
+
+.btn--secondary {
+  background: $grey;
+
+  &:hover, &:focus, &:active {
+    background: lighten($grey, 5%);
+  }
+}
+
+.btn--minimal {
+  background: none;
+  color: $action-color;
+  box-shadow: none;
+
+  &:hover, &:focus, &:active {
+    color: $action-hover;
+    background: none;
+  }
+
+  &.inactive {
+    opacity: 0.5;
+    color: $mid-grey;
+    background: none;
+  }
+}
+
+.btn--flat {
+  box-shadow: none;
+}
+
+.btn--icon-right {
+
+  i {
+    margin-left: $padding-unit;
+    margin-right: $padding-unit*-0.4;
+  }
+}
+
+.icon-add {
+  margin: 0px 7px 0 -2px;
+
+  &:before {
+    content:"\f055";
+    font: 1em 'fontAwesome';
+  }
+}
+
+.icon-check {
+  margin: 0px 7px 0 -2px;
+
+  &:before {
+    content:"\f00c";
+    font: 1em 'fontAwesome';
+  }
+}
+
+.icon-export {
+  margin: 0px 7px 0 -2px;
+
+  &:before {
+    content:"\f019";
+    font: 1em 'fontAwesome';
+  }
+}
+
+.btn--close {
+
+  .icon-close {
+    display: block;
+    width: 2px;
+    height: 20px;
+    background: white;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    margin-left: $padding-unit/2;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      position: relative;
+      top: 9px;
+      left: -9px;
+    }
+
+    &:hover {
+      background: $action-color;
+
+      &:before {
+        background: $action-color;
+      }
+    }
+  }
+  
+  &:hover .icon-close {
+    background: $action-color;
+
+    &:before {
+      background: $action-color;
+    }
+  }
+}
+
+.btn--edit {
+
+  .icon-edit-view {
+    margin: 0px 7px 0 -2px;
+
+    &:before {
+      content:"\f040";
+      font: 1em 'fontAwesome';
+    }
+  }
+}
+
+.btn--cancel {
+  @extend .btn--secondary;
+}
+
+.dialog__button {
+  @extend .btn;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  padding: 0;
+  margin: $padding-unit;
+  white-space: inherit;
+}
+
+.button-title {
+  display: flex;
+  width: 100%;
+  font-size: 2.2em;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.button-text {
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+  border-top: 1px solid rgba(white, 0.3);
+  padding: 1rem;
+}
+
+
+
+

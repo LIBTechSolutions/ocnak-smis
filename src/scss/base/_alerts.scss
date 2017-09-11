@@ -1,0 +1,83 @@
+.alert {
+  padding: $padding-unit;
+  background: $light-grey;
+  margin-left: 1px;
+  display: flex;
+  align-items: baseline;
+
+  .btn {
+    margin: 0 1em;
+  }
+}
+
+.alert-success {
+  @extend .alert;
+  background: rgba($success, 0.2);
+  color: darken($success, 10%);
+  &:before {
+    content:"\f00c";
+    font: 1.2em 'fontAwesome';
+    margin-right: 0.5em;
+  }
+}
+.alert-danger {
+  @extend .alert;
+  background: $danger;
+}
+.alert-warning {
+  @extend .alert;
+  background: $warning;
+  color:white;
+  &:before {
+    content:"\f12a";
+    font: 1.2em 'fontAwesome';
+    margin-right: 0.5em;
+  }
+}
+.alert-info {
+  background: $info;
+}
+
+.alert--dialog {
+  background: rgba($dark-grey, 0.8);
+  position: fixed;
+  z-index: 900;
+  top: 51px;
+  bottom: 0;
+  margin-left: 1px;
+  padding: 10% 15%;
+}
+
+.dialog__title {
+  color: white;
+  font-size: 2em;
+}
+.dialog__actions {
+  display: flex;
+  padding: 5% 0;
+  pointer-events: all;
+  button {
+    flex: 1;
+  }
+}
+
+.dialog__button.success {
+  .button-title:after {
+    content:"\f00c";
+    font: 1em 'fontAwesome';
+    margin-right: 0.5em;
+  }
+}
+
+.dialog__button.warning {
+  background: $warning;
+  &:hover {
+    background: lighten($warning, 10%);
+  }
+
+  .button-title:after {
+    content:"\f12a";
+    font: 1em 'fontAwesome';
+    margin-right: 0.5em;
+  }
+}

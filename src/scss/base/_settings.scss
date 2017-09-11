@@ -1,0 +1,25 @@
+$font-color: #4A4A4A;
+$action-color: #4AB8FB;
+$action-hover: lighten($action-color, 5%);
+
+$bg-color: #E8EFEE;
+
+$dark-grey: #4A4A4A;
+$grey: #6E9BB4;
+$mid-grey: lighten($grey, 20%);
+$light-grey: #CED7D8;
+$dark-blue: #3A6176;
+$blue: #4AA6D9;
+
+$input-color: #F4FAFD;
+
+$padding-unit: 20px;
+$font-size: 15px;
+$header-height: 64px;
+$toolbar-height: 44px;
+
+$danger: #C37E0D;
+$warning: #C37E0D;
+$success: #94C361;
+$syncing: #62C4B7;
+$info: $mid-grey;

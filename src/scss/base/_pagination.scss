@@ -1,0 +1,30 @@
+.pagination {
+  overflow: hidden;
+  display: inline-block;
+  width: auto;
+  background: white;
+  box-shadow: 1px 1px 2px rgba($font-color, 0.2);
+
+  li {
+    float: left;
+    &:not(:first-child) {
+      border-left: 1px solid $light-grey;
+    }
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    padding: $padding-unit/2;
+    height: $padding-unit*2;
+    min-width: $padding-unit*2;
+    &:hover {
+      background: $bg-color;
+    }
+  }
+
+  .active a {
+    background: $bg-color;
+    color: $font-color;
+  }
+}

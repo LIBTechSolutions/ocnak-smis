@@ -1,0 +1,74 @@
+.dropdown {
+  position: relative;
+  margin: 0.3em;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+  padding: $padding-unit/2.5 $padding-unit*1.8 $padding-unit/2 $padding-unit/1.5;
+  padding: 0.6em 2em 0.7em 1em;
+  margin: 0;
+
+  .caret {
+    display: inline-block;
+    position: absolute;
+    right: 0.8em;
+    top: 45%;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-top: 6px solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+  }
+
+  &.btn:hover, &.btn:focus, &.btn:active {
+    color: white;
+  }
+}
+
+@keyframes dropdown {
+    from {top: 80%; opacity: 0; max-height: 1px;}
+    to {top: 100%; opacity: 1; max-height: 300px;}
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  min-width: $padding-unit*8;
+  max-width: $padding-unit*15;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  margin-top: -2px;
+  background: white;
+  padding: $padding-unit/2 0;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 1px 2px 3px rgba($font-color, 0.5);
+
+  a {
+    display: block;
+    padding: $padding-unit/4 $padding-unit $padding-unit/3;
+    &:hover {
+      background: $bg-color;
+    }
+  }
+  .divider {
+    border-top: 1px solid $light-grey;
+    margin: $padding-unit/2;
+    padding: 0;
+  }
+}
+
+.open .dropdown-menu {
+  display: block;
+  animation-name: dropdown;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+}

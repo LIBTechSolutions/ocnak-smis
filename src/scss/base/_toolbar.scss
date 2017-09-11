@@ -1,0 +1,55 @@
+.toolbar {
+  background: white;
+  background: lighten($bg-color, 4%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0px 1px 1px rgba($font-color, 0.3);
+/*  margin-right: 1px;*/
+  height: $toolbar-height;
+}
+
+.toolbar-filters {
+  display: flex;
+
+  .filter {
+    border-left: 1px solid $light-grey;
+  }
+}
+
+.toolbar .dropdown {
+  margin: $padding-unit/3 0;
+
+  .dropdown-toggle {
+    height: $padding-unit*2;
+    padding-top: $padding-unit/1.8;
+  }
+  .dropdown-menu {
+    min-width: 0;
+    margin-top: $padding-unit/3 +1;
+  }
+}
+
+.filter-icon {
+  display: inline-block;
+  margin-right:$padding-unit/2;
+  color: $light-grey;
+}
+
+.toolbar-search {
+  height: $padding-unit*2;
+  margin: $padding-unit/3 $padding-unit;
+  input {
+    width: 50px;
+    &:focus {
+      width: 100px;
+    }
+  }
+  i {
+    font-size: 1.8em;
+    margin-right: $padding-unit/2;
+    margin-top: $padding-unit/4;
+    color: $light-grey;
+  }
+}
