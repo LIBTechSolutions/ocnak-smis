@@ -286,10 +286,10 @@ export default class AppHome extends React.Component {
                     <a><i className='fa fa-university' />Sections<span className='fa arrow' /></a>
                     <ul className='nav nav-second-level'>
                         <li>
-                        <a onClick={this.handleFirstGrade} href='#'><i className='fa fa-pencil-square-o' />Pre-Nursary</a>
+                        <a onClick={this.handleFirstGrade} href='#'><i className='fa fa-pencil-square-o' />Pre-Nursery</a>
                       </li>
                         <li>
-                        <a onClick={this.handleSecondGrade} href='#'><i className='fa fa-pencil-square-o' />Nursary</a>
+                        <a onClick={this.handleSecondGrade} href='#'><i className='fa fa-pencil-square-o' />Nursery</a>
                       </li>
                         <li>
                         <a onClick={this.handleThirdGrade} href='#'><i className='fa fa-pencil-square-o' />Kindergarten</a>
