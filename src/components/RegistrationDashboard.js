@@ -89,15 +89,15 @@ export default class RegistrationDashboard extends React.Component {
     })
   }
 
-  saveCase (idsrCase) {
+  saveCase (studentDetail) {
     let action = this.state.isNewCase
       ? this.props.actions.insertCase
       : this.props.actions.updateCase
 
-    action(idsrCase, true)
+    action(studentDetail, true)
 
     this.setState({
-      docId: idsrCase._id,
+      docId: studentDetail._id,
       hasChanged: false,
       savedStatusVisible: true,
       edit: false

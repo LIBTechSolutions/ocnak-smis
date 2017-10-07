@@ -1,7 +1,7 @@
 'use strict'
 
 import React, {Component} from 'react'
-import {getGradeFieldName} from '../idsrCase'
+import {getGradeFieldName} from '../studentDetail'
 
 export default class Grade extends Component {
 
