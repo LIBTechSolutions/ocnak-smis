@@ -90,6 +90,8 @@ class AppContainer extends React.Component {
       retry: true
     }).on('complete', () => {
       console.log('Remote sync complete', this.remoteSync)
+    }).on('active', () => {
+      this.setState({onlineStatus: 'online'})
     }).on('error', (err) => {
       console.log(err)
     })
