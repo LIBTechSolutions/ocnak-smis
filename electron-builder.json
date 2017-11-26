@@ -1,0 +1,13 @@
+{
+    "productName": "sisApplication",
+    "appId": "com.sis.sIS",
+    "asar": false,
+    "copyright": "Copyright © 2017 Techsol Inc",
+    "squirrelWindows": {
+      "iconUrl": "http://localhost:8000/techsol_new_logo_z7z_icon.ico"
+    },
+    "win": {
+      "icon": "resources/techsol_new_logo_z7z_icon.ico",
+      "target": "squirrel"
+    }
+  }
