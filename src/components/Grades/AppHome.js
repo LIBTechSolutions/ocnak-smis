@@ -257,10 +257,10 @@ export default class AppHome extends React.Component {
   render () {
     let props = this.props
     let homepage = classnames(this.state.view)
-    const complete = props.idsrCases.filter(idsrCase => !!idsrCase.schoolInfo && !!idsrCase.complete)
-    const female = props.idsrCases.filter(idsrCase => !!idsrCase.schoolInfo && !!idsrCase.complete && idsrCase.schoolInfo.gender === 'Female')
-    const male = props.idsrCases.filter(idsrCase => !!idsrCase.schoolInfo && !!idsrCase.complete && idsrCase.schoolInfo.gender !== 'Female')
-    const active = props.idsrCases.filter(idsrCase => !!idsrCase.schoolInfo && !!idsrCase.complete && idsrCase.schoolInfo.enrollmentStatus === 'Active')
+    const complete = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete)
+    const female = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.gender === 'Female')
+    const male = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.gender !== 'Female')
+    const active = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.enrollmentStatus === 'Active')
     return (
       <div>
         <div id='wrapper'>
@@ -286,10 +286,10 @@ export default class AppHome extends React.Component {
                     <a><i className='fa fa-university' />Sections<span className='fa arrow' /></a>
                     <ul className='nav nav-second-level'>
                         <li>
-                        <a onClick={this.handleFirstGrade} href='#'><i className='fa fa-pencil-square-o' />Pre-Nursary</a>
+                        <a onClick={this.handleFirstGrade} href='#'><i className='fa fa-pencil-square-o' />Pre-Nursery</a>
                       </li>
                         <li>
-                        <a onClick={this.handleSecondGrade} href='#'><i className='fa fa-pencil-square-o' />Nursary</a>
+                        <a onClick={this.handleSecondGrade} href='#'><i className='fa fa-pencil-square-o' />Nursery</a>
                       </li>
                         <li>
                         <a onClick={this.handleThirdGrade} href='#'><i className='fa fa-pencil-square-o' />Kindergarten</a>

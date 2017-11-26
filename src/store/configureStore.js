@@ -7,14 +7,14 @@ import { insertCase, updateCase, deleteCase } from '../actions/cases'
 
 export default function configureStore (caseDb, initialBatchTracker) {
   const pouchMiddleware = PouchMiddleware([{
-    path: '/idsrCases',
+    path: '/studentDetails',
     db: caseDb,
     actions: {
       insert: insertCase,
       update: updateCase,
       remove: deleteCase
     },
-    initialBatchDispatched: initialBatchTracker('idsrCases')
+    initialBatchDispatched: initialBatchTracker('studentDetails')
   }])
 
   const store = createStore(

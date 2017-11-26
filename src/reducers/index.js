@@ -1,10 +1,10 @@
 'use strict'
 
 import { combineReducers } from 'redux'
-import idsrCases from './idsrCases'
+import studentDetails from './studentDetails'
 import syncState from './syncState'
 
 export default combineReducers({
-  idsrCases,
+  studentDetails,
   syncState
 })

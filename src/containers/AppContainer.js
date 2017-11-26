@@ -90,6 +90,8 @@ class AppContainer extends React.Component {
       retry: true
     }).on('complete', () => {
       console.log('Remote sync complete', this.remoteSync)
+    }).on('active', () => {
+      this.setState({onlineStatus: 'online'})
     }).on('error', (err) => {
       console.log(err)
     })
@@ -102,7 +104,7 @@ class AppContainer extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    idsrCases: state.idsrCases
+    studentDetails: state.studentDetails
   }
 }
 

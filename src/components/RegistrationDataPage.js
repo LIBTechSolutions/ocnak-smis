@@ -6,26 +6,26 @@ export default class RegistrationDataPage extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      idsrCases: props.idsrCases,
-      filteredInfo: props.idsrCases
+      studentDetails: props.studentDetails,
+      filteredInfo: props.studentDetails
     }
     this.handleDataSearch = this.handleDataSearch.bind(this)
   }
 
   handleDataSearch (data) {
-    let result = this.state.idsrCases
+    let result = this.state.studentDetails
     const stringContains = (haystack, needle) => {
       return haystack ? haystack.toLowerCase().includes(needle.toLowerCase()) : false
     }
 
     if (data.word.length > 0) {
-      result = result.filter((idsrCase) => {
-        if (stringContains(idsrCase.schoolInfo.studentID, data.word) ||
-          stringContains(idsrCase.schoolInfo.firstname, data.word) ||
-          stringContains(idsrCase.schoolInfo.middlename, data.word) ||
-          stringContains(idsrCase.schoolInfo.lastname, data.word) ||
-          stringContains(idsrCase.schoolInfo.class, data.word) ||
-          stringContains(idsrCase.schoolInfo.enrollmentStatus, data.word)) {
+      result = result.filter((studentDetail) => {
+        if (stringContains(studentDetail.schoolInfo.studentID, data.word) ||
+          stringContains(studentDetail.schoolInfo.firstname, data.word) ||
+          stringContains(studentDetail.schoolInfo.middlename, data.word) ||
+          stringContains(studentDetail.schoolInfo.lastname, data.word) ||
+          stringContains(studentDetail.schoolInfo.class, data.word) ||
+          stringContains(studentDetail.schoolInfo.enrollmentStatus, data.word)) {
           return true
         }
         return false
@@ -35,7 +35,7 @@ export default class RegistrationDataPage extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.setState({filteredInfo: nextProps.idsrCases})
+    this.setState({filteredInfo: nextProps.studentDetails})
   }
 
   render () {
@@ -43,8 +43,8 @@ export default class RegistrationDataPage extends React.Component {
     const filteredInfo = this.state.filteredInfo
     const canAddInfo = props.user.role !== 'teacher'
 
-    const complete = filteredInfo.filter(idsrCase => !!idsrCase.schoolInfo && !!idsrCase.complete)
-    const incomplete = filteredInfo.filter(idsrCase => !!idsrCase.schoolInfo && !idsrCase.complete)
+    const complete = filteredInfo.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete)
+    const incomplete = filteredInfo.filter(studentDetail => !!studentDetail.schoolInfo && !studentDetail.complete)
     return (
       <div className='eidsr-data'>
         <div className='toolbar'>

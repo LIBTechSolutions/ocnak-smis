@@ -3,7 +3,7 @@
 import React, {Component} from 'react'
 import Select from './Select'
 import config from '../../config.json'
-import {getFeeFieldName} from '../idsrCase'
+import {getFeeFieldName} from '../studentDetail'
 
 export default class Fee extends Component {
 

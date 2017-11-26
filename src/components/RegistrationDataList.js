@@ -70,7 +70,7 @@ export default class RegistrationDataList extends React.Component {
           </thead>
 
           <tbody>
-            {docs.map((idsrCase) => <DataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
+            {docs.map((studentDetail) => <DataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
           </tbody>
           {pagination}
         </table>
@@ -79,17 +79,17 @@ export default class RegistrationDataList extends React.Component {
 }
 
 function DataRow (props) {
-  let {idsrCase, viewDoc, selectedCase} = props
+  let {studentDetail, viewDoc, selectedCase} = props
 
   return (
-    <tr onClick={viewDoc(idsrCase._id)} className={selectedCase === idsrCase._id ? 'selected' : ''}>
-      <td>{idsrCase.schoolInfo.studentID}</td>
-      <td>{idsrCase.schoolInfo.firstname}</td>
-      <td>{idsrCase.schoolInfo.middlename}</td>
-      <td>{idsrCase.schoolInfo.lastname}</td>
-      <td>{idsrCase.schoolInfo.gender}</td>
-      <td>{idsrCase.schoolInfo.class}</td>
-      <td>{idsrCase.schoolInfo.enrollmentStatus}</td>
+    <tr onClick={viewDoc(studentDetail._id)} className={selectedCase === studentDetail._id ? 'selected' : ''}>
+      <td>{studentDetail.schoolInfo.studentID}</td>
+      <td>{studentDetail.schoolInfo.firstname}</td>
+      <td>{studentDetail.schoolInfo.middlename}</td>
+      <td>{studentDetail.schoolInfo.lastname}</td>
+      <td>{studentDetail.schoolInfo.gender}</td>
+      <td>{studentDetail.schoolInfo.class}</td>
+      <td>{studentDetail.schoolInfo.enrollmentStatus}</td>
     </tr>
   )
 }

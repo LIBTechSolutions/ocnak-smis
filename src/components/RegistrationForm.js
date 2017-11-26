@@ -8,7 +8,7 @@ import FeeSection from '../elements/FeeSection'
 import AttendanceSection from '../elements/AttendanceSection'
 import YesNoDialog from '../elements/YesNoDialog'
 import {
-  getIDSRCase,
+  getstudentDetail,
   completeCase,
   getGradeInfo,
   getFeeInfo,
@@ -16,19 +16,19 @@ import {
   MAX_GRADE_NUMBER,
   MAX_FEE_NUMBER,
   MAX_ATTENDANCE_NUMBER
-} from '../idsrCase'
+} from '../studentDetail'
 
 export default class RegistrationForm extends React.Component {
   constructor (props) {
     super(props)
 
-    let idsrCase = getIDSRCase(this.props)
-    let gradeInfo = getGradeInfo(idsrCase)
-    let feeInfo = getFeeInfo(idsrCase)
-    let attendanceInfo = getAttendanceInfo(idsrCase)
+    let studentDetail = getstudentDetail(this.props)
+    let gradeInfo = getGradeInfo(studentDetail)
+    let feeInfo = getFeeInfo(studentDetail)
+    let attendanceInfo = getAttendanceInfo(studentDetail)
     this.state = {
       canSubmit: false,
-      idsrCase: idsrCase,
+      studentDetail: studentDetail,
       gradeInfos: gradeInfo.gradeInfos,
       feeInfos: feeInfo.feeInfos,
       attendanceInfos: attendanceInfo.attendanceInfos,
@@ -55,15 +55,15 @@ export default class RegistrationForm extends React.Component {
     if (!this.props.edit &&
         (nextProps.updateDoc === nextProps.docId ||
          this.props.docId !== nextProps.docId)) {
-      const idsrCase = nextProps.docId
-        ? this.props.idsrCases.find(({_id}) => _id === nextProps.docId)
-        : getIDSRCase(nextProps)
+      const studentDetail = nextProps.docId
+        ? this.props.studentDetails.find(({_id}) => _id === nextProps.docId)
+        : getstudentDetail(nextProps)
 
-      let gradeInfo = getGradeInfo(idsrCase)
-      let feeInfo = getFeeInfo(idsrCase)
-      let attendanceInfo = getAttendanceInfo(idsrCase)
+      let gradeInfo = getGradeInfo(studentDetail)
+      let feeInfo = getFeeInfo(studentDetail)
+      let attendanceInfo = getAttendanceInfo(studentDetail)
       this.setState({
-        idsrCase: idsrCase,
+        studentDetail: studentDetail,
         gradeInfos: gradeInfo.gradeInfos,
         feeInfos: feeInfo.feeInfos,
         attendanceInfos: attendanceInfo.attendanceInfos,
@@ -85,7 +85,7 @@ export default class RegistrationForm extends React.Component {
                 : e.target.value
 
       this.setState((prevState, props) => {
-        let idsrCase = {
+        let studentDetail = {
           schoolInfo: {
             [key]: {$set: value}
           }
@@ -94,15 +94,15 @@ export default class RegistrationForm extends React.Component {
         if (typeof dependentProps === 'function') {
           let calculatedProps = dependentProps(value)
           for (let prop in calculatedProps) {
-            idsrCase.schoolInfo[prop] = {$set: calculatedProps[prop]}
+            studentDetail.schoolInfo[prop] = {$set: calculatedProps[prop]}
           }
         } else {
           for (let prop in dependentProps) {
-            idsrCase.schoolInfo[prop] = {$set: dependentProps[prop](value)}
+            studentDetail.schoolInfo[prop] = {$set: dependentProps[prop](value)}
           }
         }
 
-        return update(prevState, {idsrCase, hasChanged: {$set: true}})
+        return update(prevState, {studentDetail, hasChanged: {$set: true}})
       })
       this.props.toggleHasChanged()
     }
@@ -118,8 +118,8 @@ export default class RegistrationForm extends React.Component {
   submitCase (event) {
     event.preventDefault()
 
-    const idsrCase = completeCase(this.state.idsrCase)
-    this.props.saveCase(idsrCase)
+    const studentDetail = completeCase(this.state.studentDetail)
+    this.props.saveCase(studentDetail)
   }
 
   // A form is submittable if it's in edit mode, has changes and is valid
@@ -175,7 +175,7 @@ export default class RegistrationForm extends React.Component {
     } = props
 
     let {
-      idsrCase,
+      studentDetail,
       gradeInfos,
       feeInfos,
       attendanceInfos,
@@ -199,7 +199,7 @@ export default class RegistrationForm extends React.Component {
                 edit={edit}
                 toggleEdit={toggleEdit}
                 confirmClose={confirmClose}
-                {...idsrCase.schoolInfo} />
+                {...studentDetail.schoolInfo} />
               <div className='eidsr-form__container' ref={container => { this.container = container }}>
                 {savedStatusVisible && this.savedStatus()}
                 {confirmCloseDialogVisible && this.confirmCloseDialog()}
@@ -207,28 +207,28 @@ export default class RegistrationForm extends React.Component {
                   edit={edit}
                   handleChange={this.updateDoc}
                   user={user}
-                  {...idsrCase.schoolInfo} />}
+                  {...studentDetail.schoolInfo} />}
                 {canCreateGrade && <GradeSection
                   edit={edit}
                   handleChange={this.updateDoc}
                   grades={gradeInfos}
                   canShowGrade={canShowGrade}
                   handleShow={this.showGradeInfo}
-                  {...idsrCase.schoolInfo} />}
+                  {...studentDetail.schoolInfo} />}
                 {canCreateFee && <FeeSection
                   edit={edit}
                   handleChange={this.updateDoc}
                   fees={feeInfos}
                   canShowFee={canShowFee}
                   handleShow={this.showFeeInfo}
-                  {...idsrCase.schoolInfo} />}
+                  {...studentDetail.schoolInfo} />}
                 {canCreateAtendance && <AttendanceSection
                   edit={edit}
                   handleChange={this.updateDoc}
                   attendances={attendanceInfos}
                   canShowAttendance={canShowAttendance}
                   handleShow={this.showAttendanceInfo}
-                  {...idsrCase.schoolInfo} />}
+                  {...studentDetail.schoolInfo} />}
               </div>
             </form>
           </div>
@@ -238,7 +238,7 @@ export default class RegistrationForm extends React.Component {
   }
 
   confirmCloseDialog () {
-    const {docId} = this.state.idsrCase.schoolInfo
+    const {docId} = this.state.studentDetail.schoolInfo
     console.log(docId)
     const title = <span>You didn't save your changes. Do you want to keep editing {!!docId && <em>ID {docId}</em>}?</span>
 

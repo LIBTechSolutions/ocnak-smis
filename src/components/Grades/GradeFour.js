@@ -6,7 +6,7 @@ import ProfileTool from './ProfileTool'
 
 export default function GradeFour (props) {
   let {closeProfile} = props
-  const complete = props.idsrCases.filter(idsrCase => !!idsrCase.complete && idsrCase.registrationInfo.currentClass === 'Grade Four')
+  const complete = props.studentDetails.filter(studentDetail => !!studentDetail.complete && studentDetail.registrationInfo.currentClass === 'Grade Four')
   return (
     <div className='student-data'>
       <div className=''>
