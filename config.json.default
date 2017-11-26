@@ -1,39 +1,43 @@
 {
-  "staff_positions": {
-    "staffs": {
-      "Principal": "Principal",
-      "Vice Principal": "Vice Principal",
-      "Accountant": "Accountant",
-      "Janitor": "Janitor"
+    "staff_positions": {
+      "staffs": {
+        "Principal": "Principal",
+        "Vice Principal": "Vice Principal",
+        "Accountant": "Accountant",
+        "Janitor": "Janitor"
+      },
+      "grades": {
+        "Pre-Nursery": "Pre-Nursery",
+        "Nursery": "Nursery",
+        "Kindergarten": "Kindergarten"
+      }
     },
-    "grades": {
-      "Grade One": "Grade One",
-      "Grade Two": "Grade Two",
-      "Grade Three": "Grade Three",
-      "Grade Four": "Grade Four",
-      "Grade Five": "Grade Five",
-      "Grade Six": "Grade Six",
-      "Grade Seven": "Grade Seven",
-      "Grade Eight": "Grade Eight",
-      "Grade Nine": "Grade Nine",
-      "Grade Ten": "Grade Ten",
-      "Grade Eleven": "Grade Eleven",
-      "Grade Twelve": "Grade Twelve"
-    }
-  },
-  "allowed_users": {
-    "zikollie@gmail.com": {
-      "password": "kollie12345"
-    }
-  },
-  "db": {
-    "case": {
-      "local": "sisdb5-04",
-      "remote": "http://localhost:5984/techsolsis-03",
-      "auth": {
-        "username": "admin",
-        "password": "admin"
+    "allowed_users": {
+      "zikollie@gmail.com": {
+        "password": "kollie12345",
+        "role": "administrator"
+      },
+      "administrator@gmail.com": {
+        "password": "kollie12345",
+        "role": "administrator"
+      },
+      "teacher@gmail.com": {
+        "password": "kollie12345",
+        "role": "teacher"
+      },
+      "registrar@gmail.com": {
+        "password": "kollie12345",
+        "role": "registrar"
+      }
+    },
+    "db": {
+      "case": {
+        "local": "smis2",
+        "remote": "http://ec2-35-163-181-124.us-west-2.compute.amazonaws.com:5984/smis",
+        "auth": {
+          "username": "admin",
+          "password": "42Yzr60GFfCD"
+        }
       }
     }
   }
-}

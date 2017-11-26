@@ -7,7 +7,7 @@ import ProfileTool from './ProfileTool'
 
 export default function GradeOne (props) {
   let {closeProfile} = props
-  const complete = props.idsrCases.filter(idsrCase => !!idsrCase.schoolInfo && !!idsrCase.complete && idsrCase.schoolInfo.class === 'Pre-Nursary')
+  const complete = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.class === 'Pre-Nursary')
 
   return (
     <div className='student-profile'>
@@ -74,16 +74,16 @@ export class GradeStudents extends React.Component {
       : (
         <table className='profile'>
           <tbody>
-            {docs.map((idsrCase) => <NameDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <IdDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <GradeDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <GenderDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <TotalFeeDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <InstallmentOneDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <InstallmentTwoDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <InstallmentThreeDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <InstallmentFourDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
-            {docs.map((idsrCase) => <TotalInstallmentDataRow key={idsrCase._id} idsrCase={idsrCase} {...this.props} />)}
+            {docs.map((studentDetail) => <NameDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <IdDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <GradeDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <GenderDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <TotalFeeDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <InstallmentOneDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <InstallmentTwoDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <InstallmentThreeDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <InstallmentFourDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <TotalInstallmentDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
           </tbody>
           {pagination}
         </table>
@@ -92,108 +92,108 @@ export class GradeStudents extends React.Component {
 }
 
 function NameDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr>
-      <td className='name'>{idsrCase.schoolInfo.firstname}&nbsp;{idsrCase.schoolInfo.middlename}&nbsp;{idsrCase.schoolInfo.lastname}</td>
+      <td className='name'>{studentDetail.schoolInfo.firstname}&nbsp;{studentDetail.schoolInfo.middlename}&nbsp;{studentDetail.schoolInfo.lastname}</td>
     </tr>
   )
 }
 
 function IdDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>Student ID:</td>
-      <td>{idsrCase.schoolInfo.studentID}</td>
+      <td>{studentDetail.schoolInfo.studentID}</td>
     </tr>
   )
 }
 
 function GradeDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>Class:</td>
-      <td>{idsrCase.schoolInfo.class}</td>
+      <td>{studentDetail.schoolInfo.class}</td>
     </tr>
   )
 }
 
 function GenderDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>Gender:</td>
-      <td>{idsrCase.schoolInfo.gender}</td>
+      <td>{studentDetail.schoolInfo.gender}</td>
     </tr>
   )
 }
 
 function InstallmentOneDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>First Installment:</td>
-      <td>{'$' + idsrCase.schoolInfo.fee01_amount + '.00'}</td>
+      <td>{'$' + studentDetail.schoolInfo.fee01_amount + '.00'}</td>
     </tr>
   )
 }
 
 function InstallmentTwoDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>Second Installment:</td>
-      <td>{'$' + idsrCase.schoolInfo.fee02_amount + '.00'}</td>
+      <td>{'$' + studentDetail.schoolInfo.fee02_amount + '.00'}</td>
     </tr>
   )
 }
 
 function InstallmentThreeDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>Third Installment:</td>
-      <td>{'$' + idsrCase.schoolInfo.fee03_amount + '.00'}</td>
+      <td>{'$' + studentDetail.schoolInfo.fee03_amount + '.00'}</td>
     </tr>
   )
 }
 
 function InstallmentFourDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>Fourth Installment:</td>
-      <td>{'$' + idsrCase.schoolInfo.fee04_amount + '.00'}</td>
+      <td>{'$' + studentDetail.schoolInfo.fee04_amount + '.00'}</td>
     </tr>
   )
 }
 
 function TotalFeeDataRow (props) {
-  let {idsrCase} = props
+  let {studentDetail} = props
 
   return (
     <tr className='separate'>
       <td className='title-padding'>Total Fee:</td>
-      <td style={{fontWeight: 'bold'}}>{'$' + idsrCase.schoolInfo.totalFee + '.00'}</td>
+      <td style={{fontWeight: 'bold'}}>{'$' + studentDetail.schoolInfo.totalFee + '.00'}</td>
     </tr>
   )
 }
 
 function TotalInstallmentDataRow (props) {
-  let {idsrCase} = props
-  var data = [idsrCase.schoolInfo.fee01_amount, idsrCase.schoolInfo.fee02_amount,
-    idsrCase.schoolInfo.fee03_amount, idsrCase.schoolInfo.fee04_amount].map(Number)
-  let data2 = [idsrCase.schoolInfo.totalFee].map(Number)
+  let {studentDetail} = props
+  var data = [studentDetail.schoolInfo.fee01_amount, studentDetail.schoolInfo.fee02_amount,
+    studentDetail.schoolInfo.fee03_amount, studentDetail.schoolInfo.fee04_amount].map(Number)
+  let data2 = [studentDetail.schoolInfo.totalFee].map(Number)
 
   function getSum (total, num) {
     return total + num

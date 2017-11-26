@@ -3,7 +3,7 @@
 import React, {Component} from 'react'
 import Select from './Select'
 import config from '../../config.json'
-import {getAttendanceFieldName} from '../idsrCase'
+import {getAttendanceFieldName} from '../studentDetail'
 import {toDateString} from '../utils'
 
 export default class Attendance extends Component {
@@ -125,4 +125,3 @@ export default class Attendance extends Component {
     )
   }
 }
-
