@@ -4,6 +4,15 @@ import classnames from 'classnames'
 import GradeOne from './GradeOne'
 import GradeTwo from './GradeTwo'
 import GradeThree from './GradeThree'
+import GradeFour from './GradeFour'
+import GradeFive from './GradeFive'
+import GradeSix from './GradeSix'
+import GradeSeven from './GradeSeven'
+import GradeEight from './GradeEight'
+import GradeNine from './GradeNine'
+import GradeTen from './GradeTen'
+import GradeEleven from './GradeEleven'
+import GradeTwelve from './GradeTwelve'
 
 export default class AppHome extends React.Component {
   constructor (props) {
@@ -286,13 +295,22 @@ export default class AppHome extends React.Component {
                     <a><i className='fa fa-university' />Sections<span className='fa arrow' /></a>
                     <ul className='nav nav-second-level'>
                         <li>
-                        <a onClick={this.handleFirstGrade} href='#'><i className='fa fa-pencil-square-o' />Pre-Nursery</a>
+                        <a onClick={this.handleFirstGrade} href='#'><i className='fa fa-pencil-square-o' />Grade One</a>
                       </li>
                         <li>
-                        <a onClick={this.handleSecondGrade} href='#'><i className='fa fa-pencil-square-o' />Nursery</a>
+                        <a onClick={this.handleSecondGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Two</a>
                       </li>
                         <li>
-                        <a onClick={this.handleThirdGrade} href='#'><i className='fa fa-pencil-square-o' />Kindergarten</a>
+                        <a onClick={this.handleThirdGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Three</a>
+                      </li>
+                      <li>
+                        <a onClick={this.handleFourthGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Four</a>
+                      </li>
+                      <li>
+                        <a onClick={this.handleFifthGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Five</a>
+                      </li>
+                      <li>
+                        <a onClick={this.handleSixthGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Six</a>
                       </li>
                       </ul>
 
@@ -301,22 +319,22 @@ export default class AppHome extends React.Component {
                     <a href='#'><i className='fa fa-university' />Sections<span className='fa arrow' /></a>
                     <ul className='nav nav-second-level'>
                         <li>
-                        <a href='#'>Option</a>
+                        <a onClick={this.handleSevenGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Seven</a>
                       </li>
                         <li>
-                        <a href='#'>Option</a>
+                        <a onClick={this.handleEightGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Eight</a>
                       </li>
                         <li>
-                        <a href='#'>Option</a>
+                        <a onClick={this.handleNineGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Nine</a>
                       </li>
                         <li>
-                        <a href='#'>Option</a>
+                        <a onClick={this.handleTenGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Ten</a>
                       </li>
                         <li>
-                        <a href='#'> Option</a>
+                        <a onClick={this.handleElevenGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Eleven</a>
                       </li>
                         <li>
-                        <a href='#'>Option</a>
+                        <a onClick={this.handleTwelveGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Twelve</a>
                       </li>
                       </ul>
 
@@ -438,6 +456,46 @@ export default class AppHome extends React.Component {
               {this.state.third ? <div className={homepage}>
                 <div className='home-page'>
                   <GradeThree closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.fourth ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeFour closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.fifth ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeFive closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.sixth ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeSix closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.seven ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeSeven closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.eight ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeEight closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.nine ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeNine closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.eleven ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeEleven closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.twelve ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeTwelve closeProfile={this.closeProfile} {...this.props} />
                 </div>
               </div> : null}
             </div>

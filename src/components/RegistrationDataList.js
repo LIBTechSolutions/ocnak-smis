@@ -80,9 +80,13 @@ export default class RegistrationDataList extends React.Component {
 
 function DataRow (props) {
   let {studentDetail, viewDoc, selectedCase} = props
+  const canEditInfo = props.user.role !== 'teacher'  && props.user.role !== 'administrator'
+  const canCreateGrade = props.user.role !== 'teacher' && props.user.role !== 'registrar'
+  const canCreateFee = props.user.role !== 'administrator' && props.user.role !== 'teacher'
+  const canCreateAtendance = props.user.role !== 'administrator' && props.user.role !== 'registrar'
 
   return (
-    <tr onClick={viewDoc(studentDetail._id)} className={selectedCase === studentDetail._id ? 'selected' : ''}>
+    <tr className={selectedCase === studentDetail._id ? 'selected' : ''}>
       <td>{studentDetail.schoolInfo.studentID}</td>
       <td>{studentDetail.schoolInfo.firstname}</td>
       <td>{studentDetail.schoolInfo.middlename}</td>
@@ -90,6 +94,10 @@ function DataRow (props) {
       <td>{studentDetail.schoolInfo.gender}</td>
       <td>{studentDetail.schoolInfo.class}</td>
       <td>{studentDetail.schoolInfo.enrollmentStatus}</td>
+      {canEditInfo && <a style={{ color: '#428bca', textDecoration: 'none' }} onClick={viewDoc(studentDetail._id)} href='#'><i className='fa fa-pencil-square-o' />Edit</a>}
+      {canCreateGrade && <a style={{ color: '#428bca', textDecoration: 'none' }} onClick={viewDoc(studentDetail._id)} href='#'><i className='fa fa-plus' />Add Grade</a>}
+      {canCreateFee && <a style={{ color: '#428bca', textDecoration: 'none' }} onClick={viewDoc(studentDetail._id)} href='#'><i className='fa fa-plus' />Add Fee</a>}
+      {canCreateAtendance && <a style={{ color: '#428bca', textDecoration: 'none' }} onClick={viewDoc(studentDetail._id)} href='#'><i className='fa fa-plus' />Add Attendance</a>}      
     </tr>
   )
 }

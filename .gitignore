@@ -59,6 +59,7 @@ builds
 src/static
 
 config.json
+electron-builder.json
 
 # installer files
 dist

@@ -86,10 +86,11 @@ export default class App extends React.Component {
       <div className='app-container'>
         <header className='navbar'>
           <div className='navbar__header'>
-            <h2>SIS Offline Application</h2>
+            <h2>SchoolRec</h2>
           </div>
-          {onlineStatus}
-          {userStatus}
+            <div style={{ marginLeft: '80px' }}>
+              {userStatus}
+            </div>
         </header>
         <div className='app-content'>{dataContent}</div>
         <footer />

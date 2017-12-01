@@ -7,7 +7,7 @@ export default function FormToolbar (props) {
   let {isNewCase, canSubmit, edit, toggleEdit, confirmClose} = props
 
   let title = isNewCase
-    ? 'New Case'
+    ? 'New Registration'
     : 'ID ' + props.docId
 
   let headerClass = classnames({

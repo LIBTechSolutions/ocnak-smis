@@ -141,7 +141,8 @@ hr {
   padding: 1rem;
   margin-left: -13rem;
   justify-content: center;
-  width: 60%;
+  width: 75%;
+  height: 77rem;
   background: rgba($dark-grey, 0.8);
   top: 80px;
   bottom: 0;
@@ -308,6 +309,12 @@ img:hover {
 .title-padding {
 padding-left: 4rem;
 }
+
+.grade-padding {
+  padding-left: 1rem;
+  border: 1px solid black;
+  padding-right: 0.5rem;
+  }
 
 .paris {
     background: url(../static/images/school.jpg);

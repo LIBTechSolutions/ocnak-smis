@@ -8,18 +8,18 @@ import AppContainer from './containers/AppContainer'
 import configureStore from './store/configureStore'
 import config from '../config.json'
 
-const caseDb = new PouchDB(config.db.case.local)
-const remoteDb = config.db.case.remote
+const schoolDb = new PouchDB(config.db.school.local)
+const remoteSchoolDb = config.db.school.remote
 
 let loadedData = {}
 const initialBatchTracker = (name) => () => { loadedData[name] = true }
-const store = configureStore(caseDb, initialBatchTracker)
+const store = configureStore(schoolDb, initialBatchTracker)
 
 render(
   <Provider store={store}>
     <AppContainer
-      caseDb={caseDb}
-      remoteDb={remoteDb}
+      schoolDb={schoolDb}
+      remoteSchoolDb={remoteSchoolDb}
       config={config}
     />
   </Provider>,

@@ -15,8 +15,8 @@ class AppContainer extends React.Component {
   constructor (props) {
     super(props)
 
-    this.caseDb = this.props.caseDb
-    this.remoteDb = this.props.remoteDb
+    this.schoolDb = this.props.schoolDb
+    this.remoteSchoolDb = this.props.remoteSchoolDb
     this.remoteSync = null
 
     this.state = {
@@ -33,8 +33,8 @@ class AppContainer extends React.Component {
   checkLogin (user) {
     const {config} = this.props
 
-    if (user in config.allowed_users) {
-      this.login(Object.assign({user}, config.allowed_users[user]))
+    if (user in config.users) {
+      this.login(Object.assign({user}, config.users[user]))
     } else {
       this.loginFail()
     }
@@ -85,7 +85,7 @@ class AppContainer extends React.Component {
 
   startRemoteSync () {
     console.log('starting remote sync')
-    this.remoteSync = this.caseDb.sync(this.remoteDb, {
+    this.remoteSync = this.schoolDb.sync(this.remoteSchoolDb, {
       live: true,
       retry: true
     }).on('complete', () => {
