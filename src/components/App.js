@@ -86,7 +86,7 @@ export default class App extends React.Component {
       <div className='app-container'>
         <header className='navbar'>
           <div className='navbar__header'>
-            <h2>SchoolRec</h2>
+            <h2>School Sync</h2>
           </div>
             <div style={{ marginLeft: '80px' }}>
               {userStatus}

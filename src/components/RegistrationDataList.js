@@ -80,10 +80,10 @@ export default class RegistrationDataList extends React.Component {
 
 function DataRow (props) {
   let {studentDetail, viewDoc, selectedCase} = props
-  const canEditInfo = props.user.role !== 'teacher'  && props.user.role !== 'administrator'
-  const canCreateGrade = props.user.role !== 'teacher' && props.user.role !== 'registrar'
-  const canCreateFee = props.user.role !== 'administrator' && props.user.role !== 'teacher'
-  const canCreateAtendance = props.user.role !== 'administrator' && props.user.role !== 'registrar'
+  const canEditInfo = props.user.role !== 'teacher'  && props.user.role !== 'administrator' && props.user.role !== 'finance'
+  const canCreateGrade = props.user.role !== 'teacher' && props.user.role !== 'registrar' && props.user.role !== 'finance' && props.user.role !== 'principal'
+  const canCreateFee = props.user.role !== 'administrator' && props.user.role !== 'teacher' && props.user.role !== 'registrar' && props.user.role !== 'principal'
+  const canCreateAtendance = props.user.role !== 'administrator' && props.user.role !== 'registrar' && props.user.role !== 'finance' && props.user.role !== 'principal'
 
   return (
     <tr className={selectedCase === studentDetail._id ? 'selected' : ''}>

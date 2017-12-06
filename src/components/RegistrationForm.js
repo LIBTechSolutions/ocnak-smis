@@ -183,10 +183,10 @@ export default class RegistrationForm extends React.Component {
       canShowFee,
       canShowAttendance} = this.state
 
-    const canCreateRegistration = this.props.user.role !== 'teacher'  && this.props.user.role !== 'administrator'
-    const canCreateGrade = this.props.user.role !== 'teacher' && this.props.user.role !== 'registrar'
-    const canCreateFee = this.props.user.role !== 'administrator' && this.props.user.role !== 'teacher'
-    const canCreateAtendance = this.props.user.role !== 'administrator' && this.props.user.role !== 'registrar'
+    const canCreateRegistration = this.props.user.role !== 'teacher'  && this.props.user.role !== 'administrator' && this.props.user.role !== 'finance'
+    const canCreateGrade = this.props.user.role !== 'teacher' && this.props.user.role !== 'registrar' && this.props.user.role !== 'finance'
+    const canCreateFee = this.props.user.role !== 'administrator' && this.props.user.role !== 'teacher' && this.props.user.role !== 'registrar'
+    const canCreateAtendance = this.props.user.role !== 'administrator' && this.props.user.role !== 'registrar' && this.props.user.role !== 'finance'
 
     return (
       <div className='student'>

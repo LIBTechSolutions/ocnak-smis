@@ -41,7 +41,7 @@ export default class RegistrationDataPage extends React.Component {
   render () {
     let props = this.props
     const filteredInfo = this.state.filteredInfo
-    const canAddInfo = props.user.role !== 'teacher'
+    const canAddInfo = props.user.role !== 'teacher'  && props.user.role !== 'administrator' && props.user.role !== 'finance'
 
     const complete = filteredInfo.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete)
     const incomplete = filteredInfo.filter(studentDetail => !!studentDetail.schoolInfo && !studentDetail.complete)

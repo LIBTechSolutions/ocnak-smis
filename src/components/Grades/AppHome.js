@@ -185,7 +185,8 @@ export default class AppHome extends React.Component {
   handleEightGrade () {
     this.setState({
       view: 'split-view',
-      seven: true,
+      eight: true,
+      seven: false,
       sixth: false,
       fifth: false,
       fourth: false,
@@ -211,7 +212,8 @@ export default class AppHome extends React.Component {
       second: false,
       ten: false,
       eleven: false,
-      twelve: false
+      twelve: false,
+      eight: false,
     })
   }
   handleTenGrade () {
@@ -227,7 +229,8 @@ export default class AppHome extends React.Component {
       first: false,
       second: false,
       eleven: false,
-      twelve: false
+      twelve: false,
+      eight: false,
     })
   }
   handleElevenGrade () {
@@ -243,7 +246,8 @@ export default class AppHome extends React.Component {
       third: false,
       first: false,
       second: false,
-      twelve: false
+      twelve: false,
+      eight: false,
     })
   }
   handleTwelveGrade () {
@@ -259,7 +263,8 @@ export default class AppHome extends React.Component {
       third: false,
       first: false,
       second: false,
-      eleven: false
+      eleven: false,
+      eight: false,
     })
   }
 
@@ -486,6 +491,11 @@ export default class AppHome extends React.Component {
               {this.state.nine ? <div className={homepage}>
                 <div className='home-page'>
                   <GradeNine closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.ten ? <div className={homepage}>
+                <div className='home-page'>
+                  <GradeTen closeProfile={this.closeProfile} {...this.props} />
                 </div>
               </div> : null}
               {this.state.eleven ? <div className={homepage}>
