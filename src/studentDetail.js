@@ -1,4 +1,4 @@
-import { generateId } from './utils'
+import { generateId, receiptId } from './utils'
 import { toIndexableString } from 'pouchdb-collate'
 import uuid from 'uuid/v4'
 
@@ -11,9 +11,9 @@ const GradeFields = ['semester', 'period', 'math', 'english', 'healthScience', '
   'physicalEducation', 'spanish'
 ]
 
-const FeeFields = ['semester', 'installment', 'grade', 'amount']
+const FeeFields = ['semester', 'installment', 'grade', 'amount', 'feeDate']
 
-const AttendanceFields = ['date', 'day', 'attendance']
+const AttendanceFields = ['day', 'attendance', 'attendanceDate']
 
 export function getstudentDetail ({user}) {
   let schoolModel = {
@@ -24,6 +24,10 @@ export function getstudentDetail ({user}) {
     schoolInfo: {
       docId: generateId(),
       studentID: generateId(),
+      receipt1: receiptId(),
+      receipt2: receiptId(),
+      receipt3: receiptId(),
+      receipt4: receiptId(),
       firstname: '',
       middlename: '',
       lastname: '',

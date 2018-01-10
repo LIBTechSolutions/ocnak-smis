@@ -4,6 +4,7 @@ import React, {Component} from 'react'
 import Select from './Select'
 import config from '../../config.json'
 import {getFeeFieldName} from '../studentDetail'
+import {toDateString} from '../utils'
 
 export default class Fee extends Component {
 
@@ -11,6 +12,7 @@ export default class Fee extends Component {
     let props = this.props
     let {edit} = props
     let handleChange = props.handleChange()
+    let today = toDateString(new Date())
     let fieldName = (name) => {
       return getFeeFieldName(props.index, name)
     }
@@ -104,6 +106,15 @@ export default class Fee extends Component {
 
           value={props.class}
           />
+            </label>
+            <label>Date
+            <input name={fieldName('feeDate')}
+            max={today}
+            value={props[fieldName('feeDate')]}
+            type='date'
+            onChange={handleChange}
+            required
+            />
             </label>
             <label className='bat'>Amount
                 <input name={fieldName('amount')}

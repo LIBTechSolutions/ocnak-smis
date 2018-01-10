@@ -2,11 +2,10 @@
 'use strict'
 
 import React from 'react'
-import { Table } from 'react-bootstrap'
-import classnames from 'classnames'
-import ProfileTool from './ProfileTool'
+import Print from 'rc-print'
+import ProfileTool from '../../elements/ProfileTool'
 
-export default function GradeNine (props) {
+export default function GradeOne (props) {
   let {closeProfile} = props
   const complete = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.class === 'Grade Nine')
 
@@ -14,7 +13,7 @@ export default function GradeNine (props) {
     <div className='student-profile'>
       <div className='student-data'>
         <ProfileTool closeProfile={closeProfile} />
-        <h4>Student Profile</h4>
+        <h4>Student Gradesheet</h4>
         <GradeStudents limit={1} docs={complete} {...props} />
       </div>
     </div>
@@ -64,8 +63,8 @@ export class GradeStudents extends React.Component {
         <tfoot>
           <tr>
             <td colSpan='2'><button className='btn' type='button' onClick={this.previousPage} disabled={!this.hasPreviousPage()}>Previous</button></td>
-            <td colSpan='3' style={{textAlign: 'right'}}><button className='btn' type='button' onClick={this.nextPage} disabled={!this.hasNextPage()}>Next</button></td>
-            <td colSpan='3' style={{textAlign: 'right'}}><button className='btn' type='button' onClick={() => printDiv('printMe')}>Print</button></td>
+            <td colSpan='2'><button className='btn' type='button' onClick={this.nextPage} disabled={!this.hasNextPage()}>Next</button></td>
+            <td colSpan='7' style={{textAlign: 'right'}}><button className='btn' style={{ marginLeft: '58rem' }} type='button' onClick={() => printDiv() }><i className='fa fa-print fa-2x' aria-hidden='true' /></button></td>
           </tr>
         </tfoot>
         )
@@ -75,24 +74,21 @@ export class GradeStudents extends React.Component {
       ? <em>No Info</em>
       : (
         <div>
-        <div id='printMe'>
-          <table>
-            <tbody className='profile'>
-              {docs.map((studentDetail) => <NameDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <IdDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <GradeDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <GenderDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <TotalFeeDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <InstallmentOneDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <InstallmentTwoDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <InstallmentThreeDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <InstallmentFourDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <TotalPaidDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-              {docs.map((studentDetail) => <TotalInstallmentDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}              
-              
-              
-            </tbody>
+          <iframe id='printf' name='printf' frameBorder='0' allowFullScreen style={{ display: 'none' }}>
+          </iframe> 
+        <div id='printMe'> 
+          <table style={styles.tableStyle}>
+            <div style={{ marginRight: '100px', marginBottom: '75px' }}>
+              <tbody>
+                {docs.map((studentDetail) => <NameDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+                {docs.map((studentDetail) => <IdDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+                {docs.map((studentDetail) => <GradeDataRow key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+                
+                
+              </tbody>
+            </div>
             <br />
+            <div style={{ marginLeft: '100px', paddingRight: '10rem', paddingBottom: '3rem' }}>
             <tbody style={{border: '1px solid black'}}>
             {docs.map((studentDetail) => <GradeSheetHeader key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <EnglishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
@@ -109,11 +105,12 @@ export class GradeStudents extends React.Component {
             {docs.map((studentDetail) => <PhysicalEducationSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PeriodAverage key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             </tbody>
+            </div>
           </table>
         </div>
-        <div style={{ marginTop: '3rem' }}>
+        <div style={styles.tableStyle}>
+        {pagination}
           
-          {pagination}
           </div>
         </div>
     )
@@ -125,7 +122,8 @@ function NameDataRow (props) {
 
   return (
     <tr>
-      <td className='name'>{studentDetail.schoolInfo.firstname}&nbsp;{studentDetail.schoolInfo.middlename}&nbsp;{studentDetail.schoolInfo.lastname}</td>
+      <td style={styles.titlePadding}>Name:</td>
+      <td style={styles.name}>{studentDetail.schoolInfo.firstname}&nbsp;{studentDetail.schoolInfo.middlename}&nbsp;{studentDetail.schoolInfo.lastname}</td>
     </tr>
   )
 }
@@ -134,8 +132,8 @@ function IdDataRow (props) {
   let {studentDetail} = props
 
   return (
-    <tr className='separate'>
-      <td className='title-padding'>Student ID:</td>
+    <tr style={styles.separate}>
+      <td style={styles.titlePadding}>ID:</td>
       <td>{studentDetail.schoolInfo.studentID}</td>
     </tr>
   )
@@ -145,9 +143,9 @@ function GradeDataRow (props) {
   let {studentDetail} = props
 
   return (
-    <tr className='separate'>
-      <td className='title-padding'>Class:</td>
-      <td>{studentDetail.schoolInfo.class}</td>
+    <tr style={styles.separate}>
+      <td style={styles.titlePadding}>Class:</td>
+      <td style={styles.classPadding}>{studentDetail.schoolInfo.class}</td>
     </tr>
   )
 }
@@ -270,60 +268,24 @@ function TotalInstallmentDataRow (props) {
   )
 }
 
-function TotalGradeDataRow (props) {
-  let {studentDetail} = props
-  var data = [studentDetail.schoolInfo.grade01_math, studentDetail.schoolInfo.grade01_generalScience,
-    studentDetail.schoolInfo.grade01_healthScience, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_physicalEducation,
-    studentDetail.schoolInfo.grade01_reading, studentDetail.schoolInfo.grade01_socialStudies, studentDetail.schoolInfo.grade01_spanish,
-    studentDetail.schoolInfo.grade01_spelling, studentDetail.schoolInfo.grade01_writing, studentDetail.schoolInfo.grade01_english,
-    studentDetail.schoolInfo.grade01_drawing].map(Number)
-  
-
-  function getSum (total, num) {
-    return total + num
-  }
-  let totalGrade = data.reduce(getSum)
-  console.log(totalGrade);
-
-  let average = [totalGrade, data.length]
-
-  function getAverage (total, num) {
-    return total / num
-  }
-  let gradeAverage = average.reduce(getAverage)
-  console.log(gradeAverage)
-
-  return (
-    <tr>
-      <tr className='separate'>
-        <td className='title-padding'>Total Paid:</td>
-        <td>{'$' + totalGrade + '.00'}</td>
-
-        <td className='title-padding'>Balance Fee:</td>
-        <td>{gradeAverage}</td>
-      </tr>
-      <tr></tr>
-    </tr>
-  )
-}
 
 function GradeSheetHeader (props) {
   let {studentDetail} = props
   
   return (
-    <tr style={{ fontSize: '12px', fontWeight: 'bold' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Subjects</td>
-      <td className='grade-padding' >1<sup>st</sup> Period</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>2<sup>nd</sup> Period</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>3<sup>rd</sup> Period</td>
-      <td className='grade-padding'>1<sup>st</sup> Sem. Exam</td>
-      <td className='grade-padding'>Avg</td>
-      <td className='grade-padding'>4<sup>th</sup> Period</td>
-      <td className='grade-padding'>5<sup>th</sup> Period</td>
-      <td className='grade-padding'>6<sup>th</sup> Period</td>
-      <td className='grade-padding'>2<sup>nd</sup> Sem. Exam</td>
-      <td className='grade-padding'>Avg</td>
-      <td className='grade-padding'>Yearly Avg</td>
+    <tr style={styles.fontStyle}>
+      <td style={styles.titleStyle}>Subjects</td>
+      <td style={styles.headerTitleStyle}>1<sup>st</sup><br/> Period</td>
+      <td style={styles.subTitleStyle}>2<sup>nd</sup><br/> Period</td>
+      <td style={styles.subTitleStyle}>3<sup>rd</sup><br/> Period</td>
+      <td style={styles.headerTitleStyle}>1<sup>st</sup><br/> Sem. Exam</td>
+      <td style={styles.headerTitleStyle}>Avg</td>
+      <td style={styles.headerTitleStyle}>4<sup>th</sup><br/> Period</td>
+      <td style={styles.headerTitleStyle}>5<sup>th</sup><br/> Period</td>
+      <td style={styles.headerTitleStyle}>6<sup>th</sup><br/>Period</td>
+      <td style={styles.headerTitleStyle}>2<sup>nd</sup><br/>Sem. Exam</td>
+      <td style={styles.headerTitleStyle}>Avg</td>
+      <td style={styles.headerTitleStyle}>Yearly<br/> Avg</td>
     </tr>
   )
 }
@@ -361,19 +323,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>English</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_english}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_english}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_english}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_english}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_english}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_english}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_english}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_english}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>English</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_english}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_english}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_english}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_english}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -411,19 +373,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Math</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_math}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_math}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_math}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_math}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_math}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_math}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_math}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_math}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Math</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_math}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_math}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_math}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_math}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_math}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_math}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_math}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_math}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -461,19 +423,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Social Studies</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_socialStudies}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_socialStudies}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_socialStudies}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_socialStudies}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_socialStudies}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_socialStudies}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_socialStudies}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_socialStudies}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Social Studies</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_socialStudies}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_socialStudies}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_socialStudies}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_socialStudies}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_socialStudies}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_socialStudies}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_socialStudies}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_socialStudies}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -511,19 +473,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>General Science</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_generalScience}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_generalScience}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_generalScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_generalScience}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_generalScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_generalScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_generalScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_generalScience}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>General Science</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_generalScience}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_generalScience}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_generalScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_generalScience}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_generalScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_generalScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_generalScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_generalScience}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -561,19 +523,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Health Science</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_healthScience}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_healthScience}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_healthScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_healthScience}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_healthScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_healthScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_healthScience}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_healthScience}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Health Science</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_healthScience}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_healthScience}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_healthScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_healthScience}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_healthScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_healthScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_healthScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_healthScience}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -611,19 +573,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Reading</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_reading}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_reading}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_reading}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_reading}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_reading}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_reading}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_reading}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_reading}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Reading</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_reading}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_reading}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_reading}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_reading}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_reading}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_reading}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_reading}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_reading}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -661,19 +623,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Writing</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_writing}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_writing}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_writing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_writing}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_writing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_writing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_writing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_writing}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Writing</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_writing}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_writing}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_writing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_writing}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_writing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_writing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_writing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_writing}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -711,19 +673,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Drawing</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_drawing}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_drawing}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_drawing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_drawing}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_drawing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_drawing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_drawing}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_drawing}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Drawing</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_drawing}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_drawing}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_drawing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_drawing}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_drawing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_drawing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_drawing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_drawing}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -761,19 +723,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Spelling</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_spelling}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_spelling}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_spelling}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_spelling}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_spelling}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_spelling}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_spelling}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_spelling}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Spelling</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_spelling}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_spelling}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_spelling}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_spelling}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_spelling}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_spelling}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_spelling}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_spelling}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -812,19 +774,19 @@ let peYrAverage = yrAverage / 2
 let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Phonics</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_phonics}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_phonics}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_phonics}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_phonics}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_phonics}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_phonics}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_phonics}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_phonics}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Phonics</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_phonics}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_phonics}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_phonics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_phonics}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_phonics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_phonics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_phonics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_phonics}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -862,19 +824,19 @@ function SpanishSubject (props) {
   let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Spanish</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_spanish}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_spanish}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_spanish}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_spanish}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_spanish}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_spanish}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_spanish}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_spanish}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Spanish</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_spanish}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_spanish}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_spanish}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_spanish}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_spanish}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_spanish}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_spanish}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_spanish}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -912,19 +874,19 @@ function PhysicalEducationSubject (props) {
   let finalyrAverage = Math.round(peYrAverage * 10) / 10
 
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Physical Education</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade01_physicalEducation}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade02_physicalEducation}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{studentDetail.schoolInfo.grade03_physicalEducation}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade04_physicalEducation}</td>
-      <td className='grade-padding'>{peFinalAverage1}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade05_physicalEducation}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade06_physicalEducation}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade07_physicalEducation}</td>
-      <td className='grade-padding'>{studentDetail.schoolInfo.grade08_physicalEducation}</td>
-      <td className='grade-padding'>{peFinalAverage2}</td>
-      <td className='grade-padding'>{finalyrAverage}</td>
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>Physical Education</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_physicalEducation}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_physicalEducation}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_physicalEducation}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_physicalEducation}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_physicalEducation}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_physicalEducation}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_physicalEducation}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_physicalEducation}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
@@ -1045,32 +1007,75 @@ function PeriodAverage (props) {
   let finalYearlyAvg = Math.round(avgYearly * 10) / 10
   
   return (
-    <tr style={{ fontSize: '12px' }}>
-      <td className='grade-padding' style={{paddingLeft: '8rem'}}>Average</td>
-      <td className='grade-padding'>{finalAverage1}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{finalAverage2}</td>
-      <td className='grade-padding' style={{paddingLeft: '-8rem'}}>{finalAverage3}</td>
-      <td className='grade-padding'>{finalAverage4}</td>
-      <td className='grade-padding'>{firstSemFinalAvg1}</td>
-      <td className='grade-padding'>{finalAverage5}</td>
-      <td className='grade-padding'>{finalAverage6}</td>
-      <td className='grade-padding'>{finalAverage7}</td>
-      <td className='grade-padding'>{finalAverage8}</td>
-      <td className='grade-padding'>{firstSemFinalAvg2}</td>
-      <td className='grade-padding'>{finalYearlyAvg}</td>
+    <tr style={styles.fontStyle}>
+      <td style={styles.titleStyle}>Average</td>
+      <td style={styles.headerTitleStyle}>{finalAverage1}</td>
+      <td style={styles.subTitleStyle}>{finalAverage2}</td>
+      <td style={styles.subTitleStyle}>{finalAverage3}</td>
+      <td style={styles.headerTitleStyle}>{finalAverage4}</td>
+      <td style={styles.headerTitleStyle}>{firstSemFinalAvg1}</td>
+      <td style={styles.headerTitleStyle}>{finalAverage5}</td>
+      <td style={styles.headerTitleStyle}>{finalAverage6}</td>
+      <td style={styles.headerTitleStyle}>{finalAverage7}</td>
+      <td style={styles.headerTitleStyle}>{finalAverage8}</td>
+      <td style={styles.headerTitleStyle}>{firstSemFinalAvg2}</td>
+      <td style={styles.headerTitleStyle}>{finalYearlyAvg}</td>
     </tr>
   )
 }
 
 
-function printDiv(divName) {
-  let printContents = document.getElementById(divName).innerHTML;
-  let originalContents = document.body.innerHTML;
 
-  document.body.innerHTML = printContents;
+function printDiv(id) {
+  var newWin = window.frames['printf'];
+  let printContents = document.getElementById('printMe').innerHTML;
+  newWin.document.write('<body onload=window.print()>' + printContents + '</body>');
+  newWin.document.close();
 
-  window.print();
+  }
 
-  document.body.innerHTML = originalContents;
-}
+  let styles = {
+    titleStyle: {
+      paddingLeft: '1rem',
+      border: '1px solid black',
+      paddingRight: '0.5rem'
+    },
+    subTitleStyle: {
+      paddingLeft: '1rem',
+      paddingLeft: '1rem',
+      border: '1px solid black',
+      paddingRight: '0.5rem'
+    },
+    headerTitleStyle: {
+      paddingLeft: '1rem',
+      border: '1px solid black',
+      paddingRight: '0.5rem'
+    },
+    fontStyle: {
+      fontSize: '13px',
+      fontWeight: 'bold'
+    },
+    subFontStyle: {
+      fontSize: '13px'
+    },
+    tableStyle: {
+      marginLeft: '1rem'
+    },
+    separate: {
+      borderTop: '1px solid rgb(221, 221, 221)'
+    },
+    titlePadding: {
+      paddingLeft: '2rem',
+      paddingRight: '4rem',
+    },
+    classPadding: {
+      position: 'absolute'
+    },
+    name: {
+      position: 'absolute',
+      fontSize: '16px',
+      fontWeight: 'bold'
+    }
+  };
 
+  

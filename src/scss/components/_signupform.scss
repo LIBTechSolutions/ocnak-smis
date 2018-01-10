@@ -142,10 +142,10 @@ hr {
   margin-left: -13rem;
   justify-content: center;
   width: 75%;
-  height: 77rem;
   background: rgba($dark-grey, 0.8);
   top: 80px;
   bottom: 0;
+  display: table;
 }
 
 .student-form {
@@ -272,6 +272,7 @@ hr {
 .student-data {
   background-color: #FFFFFF;
   border-radius: 5px;
+  display: table-cell;
   h4 {
     text-align: center;
     font-size: 2rem;
@@ -302,12 +303,11 @@ img:hover {
 
 .separate td {
    border-top: 1px solid rgb(221, 221, 221);
-   font-size: 1.1rem;
-   text-align: justify;
 }
 
 .title-padding {
-padding-left: 4rem;
+  text-align: left;
+  padding-left: 4rem;
 }
 
 .grade-padding {

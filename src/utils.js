@@ -29,6 +29,11 @@ export function generateId () {
   .replace(/i|o/, '').substring(0, 3).toUpperCase()
 }
 
+export function receiptId () {
+  return '001' + (Math.floor(Math.random() * 1e15) + 1e12).toString(36)
+  .replace(/i|o/, '').substring(0, 14).toUpperCase()
+}
+
 /**
  * Calculate Epi Week of the given date.
  * The first Epi Week of the year is the week starting with the first Monday of

@@ -22,12 +22,13 @@ export default class Attendance extends Component {
         <legend>{props.title}</legend>
         <div>
           <div className='form-row'>
-            <label className='bat'>Date
-            <input name={fieldName('date')}
-              value={today}
-              type='date'
-              placeholder='Attendance Date'
-              onChange={handleChange}
+            <label>Date
+              <input name={fieldName('attendanceDate')}
+                max={today}
+                value={props[fieldName('attendanceDate')]}
+                type='date'
+                onChange={handleChange}
+                required
               />
             </label>
           </div>
