@@ -12,21 +12,6 @@ const GradeFields = ['semester', 'period', 'mathematics', 'english', 'healthScie
   'letterrecognition', 'colorrecognition', 'formationofletters', 'coloring', 'bible', 'history', 'geography', 'civics', 'literature', 'computer', 
   'french', 'biology', 'chemistry', 'physics', 'economics', 'rotc'
 ]
-// bible// writing// counting// rhyming/music// formation of numbers// number recognition// letter recognition// color recognition// formation of letters// phonics
-// coloring// hygiene// drawing// social studies// mathematics// english// science// social studies// health science// reading// spelling// physical education// writing// general science
-history
-geography
-civics
-literature
-computer
-french
-biology
-chemistry
-physics
-economics
-rotc
-
-
 
 const FeeFields = ['semester', 'installment', 'grade', 'amount', 'feeDate']
 
