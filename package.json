@@ -27,6 +27,7 @@
     "json-loader": "^0.5.4",
     "node-adodb": "^2.0.3",
     "node-xlsx": "^0.7.4",
+    "number-to-words": "^1.2.3",
     "pouch-redux-middleware": "^0.6.0",
     "pouchdb-browser": "^6.1.1",
     "pouchdb-collate": "^6.1.1",

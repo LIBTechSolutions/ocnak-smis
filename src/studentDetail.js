@@ -6,10 +6,27 @@ export const MAX_GRADE_NUMBER = 8
 export const MAX_FEE_NUMBER = 4
 export const MAX_ATTENDANCE_NUMBER = 200
 
-const GradeFields = ['semester', 'period', 'math', 'english', 'healthScience', 'phonics',
-  'spelling', 'writing', 'drawing', 'reading', 'socialStudies', 'generalScience',
-  'physicalEducation', 'spanish'
+const GradeFields = ['semester', 'period', 'mathematics', 'english', 'healthScience', 'phonics',
+  'spelling', 'writing', 'drawing', 'reading', 'socialstudies', 'science', 'generalScience', 'hygiene',
+  'physicalEducation', 'bible' , 'counting', 'rhyming/music', 'formationofnumbers', 'numberrecognition',
+  'letterrecognition', 'colorrecognition', 'formationofletters', 'coloring', 'bible', 'history', 'geography', 'civics', 'literature', 'computer', 
+  'french', 'biology', 'chemistry', 'physics', 'economics', 'rotc'
 ]
+// bible// writing// counting// rhyming/music// formation of numbers// number recognition// letter recognition// color recognition// formation of letters// phonics
+// coloring// hygiene// drawing// social studies// mathematics// english// science// social studies// health science// reading// spelling// physical education// writing// general science
+history
+geography
+civics
+literature
+computer
+french
+biology
+chemistry
+physics
+economics
+rotc
+
+
 
 const FeeFields = ['semester', 'installment', 'grade', 'amount', 'feeDate']
 
