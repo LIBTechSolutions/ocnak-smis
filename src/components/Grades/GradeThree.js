@@ -91,17 +91,16 @@ export class GradeStudents extends React.Component {
             <div style={{ marginLeft: '100px', paddingRight: '10rem', paddingBottom: '3rem' }}>
             <tbody style={{border: '1px solid black'}}>
             {docs.map((studentDetail) => <GradeSheetHeader key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <Bible key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <MathSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             {docs.map((studentDetail) => <EnglishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <MathSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <GeneralScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             {docs.map((studentDetail) => <SocialStudiesSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <GeneralScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <HealthScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <ReadingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <WritingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <DrawingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <SpellingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <PhonicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SpanishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <PhonicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <WritingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PhysicalEducationSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PeriodAverage key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             </tbody>

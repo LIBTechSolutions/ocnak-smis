@@ -91,17 +91,16 @@ export class GradeStudents extends React.Component {
             <div style={{ marginLeft: '100px', paddingRight: '10rem', paddingBottom: '3rem' }}>
             <tbody style={{border: '1px solid black'}}>
             {docs.map((studentDetail) => <GradeSheetHeader key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <Bible key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <MathSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             {docs.map((studentDetail) => <EnglishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <MathSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <GeneralScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             {docs.map((studentDetail) => <SocialStudiesSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <GeneralScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <HealthScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <ReadingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <WritingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <DrawingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <SpellingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <PhonicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SpanishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <PhonicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <WritingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PhysicalEducationSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PeriodAverage key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             </tbody>
@@ -855,13 +854,13 @@ function PeriodAverage (props) {
   
   var periodFour = [studentDetail.schoolInfo.grade04_bible, studentDetail.schoolInfo.grade04_math, studentDetail.schoolInfo.grade04_english, studentDetail.schoolInfo.grade04_generalScience, studentDetail.schoolInfo.grade04_socialStudies, studentDetail.schoolInfo.grade04_healthScience, studentDetail.schoolInfo.grade04_reading, studentDetail.schoolInfo.grade04_spelling, studentDetail.schoolInfo.grade04_phonics, studentDetail.schoolInfo.grade04_writing, studentDetail.schoolInfo.grade04_physicalEducation ].map(Number)
   
-    var periodFive = [studentDetail.schoolInfo.grade05_bible, studentDetail.schoolInfo.grade05_math, studentDetail.schoolInfo.grade05_english, studentDetail.schoolInfo.grade05_generalScience, studentDetail.schoolInfo.grade05_socialStudies, studentDetail.schoolInfo.grade05_healthScience, studentDetail.schoolInfo.grade05_reading, studentDetail.schoolInfo.grade05_spelling, studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade05_writing, studentDetail.schoolInfo.grade05_physicalEducation ].map(Number)
+  var periodFive = [studentDetail.schoolInfo.grade05_bible, studentDetail.schoolInfo.grade05_math, studentDetail.schoolInfo.grade05_english, studentDetail.schoolInfo.grade05_generalScience, studentDetail.schoolInfo.grade05_socialStudies, studentDetail.schoolInfo.grade05_healthScience, studentDetail.schoolInfo.grade05_reading, studentDetail.schoolInfo.grade05_spelling, studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade05_writing, studentDetail.schoolInfo.grade05_physicalEducation ].map(Number)
     
-    var periodSix = [studentDetail.schoolInfo.grade06_bible, studentDetail.schoolInfo.grade06_math, studentDetail.schoolInfo.grade06_english, studentDetail.schoolInfo.grade06_generalScience, studentDetail.schoolInfo.grade06_socialStudies, studentDetail.schoolInfo.grade06_healthScience, studentDetail.schoolInfo.grade06_reading, studentDetail.schoolInfo.grade06_spelling, studentDetail.schoolInfo.grade06_phonics, studentDetail.schoolInfo.grade06_writing, studentDetail.schoolInfo.grade06_physicalEducation ].map(Number)
+  var periodSix = [studentDetail.schoolInfo.grade06_bible, studentDetail.schoolInfo.grade06_math, studentDetail.schoolInfo.grade06_english, studentDetail.schoolInfo.grade06_generalScience, studentDetail.schoolInfo.grade06_socialStudies, studentDetail.schoolInfo.grade06_healthScience, studentDetail.schoolInfo.grade06_reading, studentDetail.schoolInfo.grade06_spelling, studentDetail.schoolInfo.grade06_phonics, studentDetail.schoolInfo.grade06_writing, studentDetail.schoolInfo.grade06_physicalEducation ].map(Number)
     
-    var periodSeven = [studentDetail.schoolInfo.grade07_bible, studentDetail.schoolInfo.grade07_math, studentDetail.schoolInfo.grade07_english, studentDetail.schoolInfo.grade07_generalScience, studentDetail.schoolInfo.grade07_socialStudies, studentDetail.schoolInfo.grade07_healthScience, studentDetail.schoolInfo.grade07_reading, studentDetail.schoolInfo.grade07_spelling, studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade07_writing, studentDetail.schoolInfo.grade07_physicalEducation ].map(Number)
+  var periodSeven = [studentDetail.schoolInfo.grade07_bible, studentDetail.schoolInfo.grade07_math, studentDetail.schoolInfo.grade07_english, studentDetail.schoolInfo.grade07_generalScience, studentDetail.schoolInfo.grade07_socialStudies, studentDetail.schoolInfo.grade07_healthScience, studentDetail.schoolInfo.grade07_reading, studentDetail.schoolInfo.grade07_spelling, studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade07_writing, studentDetail.schoolInfo.grade07_physicalEducation ].map(Number)
 
-      var periodEight = [studentDetail.schoolInfo.grade08_bible, studentDetail.schoolInfo.grade08_math, studentDetail.schoolInfo.grade01_english, studentDetail.schoolInfo.grade08_generalScience, studentDetail.schoolInfo.grade08_socialStudies, studentDetail.schoolInfo.grade08_healthScience, studentDetail.schoolInfo.grade08_reading, studentDetail.schoolInfo.grade08_spelling, studentDetail.schoolInfo.grade08_phonics, studentDetail.schoolInfo.grade08_writing, studentDetail.schoolInfo.grade01_physicalEducation ].map(Number)
+  var periodEight = [studentDetail.schoolInfo.grade08_bible, studentDetail.schoolInfo.grade08_math, studentDetail.schoolInfo.grade01_english, studentDetail.schoolInfo.grade08_generalScience, studentDetail.schoolInfo.grade08_socialStudies, studentDetail.schoolInfo.grade08_healthScience, studentDetail.schoolInfo.grade08_reading, studentDetail.schoolInfo.grade08_spelling, studentDetail.schoolInfo.grade08_phonics, studentDetail.schoolInfo.grade08_writing, studentDetail.schoolInfo.grade01_physicalEducation ].map(Number)
       
 
   function getSum (total, num) {
