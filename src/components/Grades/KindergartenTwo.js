@@ -5,7 +5,7 @@ import React from 'react'
 import Print from 'rc-print'
 import ProfileTool from '../../elements/ProfileTool'
 
-export default function GradeOne (props) {
+export default function KindergartenTwo (props) {
   let {closeProfile} = props
   const complete = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.class === 'Kindergarten Two')
 

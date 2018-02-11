@@ -5,7 +5,7 @@ import React from 'react'
 import Print from 'rc-print'
 import ProfileTool from '../../elements/ProfileTool'
 
-export default function GradeOne (props) {
+export default function KindergartenOne (props) {
   let {closeProfile} = props
   const complete = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.class === 'Kindergarten One')
 
@@ -1145,7 +1145,7 @@ function PhysicalEducationSubject (props) {
   )
 }
 
-function PeriodAverage (props) {
+function PeriodAverage (props) {Bible
   let {studentDetail} = props
 
   var periodOne = [studentDetail.schoolInfo.grade01_bible, studentDetail.schoolInfo.grade01_writing, studentDetail.schoolInfo.grade01_counting, studentDetail.schoolInfo.grade01_rhyming/music,  studentDetail.schoolInfo.grade01_formationofnumbers, studentDetail.schoolInfo.grade01_numberrecognition, studentDetail.schoolInfo.grade01_hygiene, studentDetail.schoolInfo.grade01_cletterrecognition, studentDetail.schoolInfo.grade01_colorrecognition, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_formationofletters, studentDetail.schoolInfo.grade01_colorrecognition, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_socialStudies, studentDetail.schoolInfo.grade01_coloring, studentDetail.schoolInfo.grade01_drawing, studentDetail.schoolInfo.grade01_physicalEducation, ].map(Number)
