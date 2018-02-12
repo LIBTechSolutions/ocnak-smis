@@ -6,7 +6,7 @@ export const MAX_GRADE_NUMBER = 8
 export const MAX_FEE_NUMBER = 4
 export const MAX_ATTENDANCE_NUMBER = 200
 
-const GradeFields = ['semester', 'period', 'mathematics', 'english', 'healthScience', 'phonics',
+const GradeFields = ['semester', 'period', 'math', 'english', 'healthScience', 'phonics',
   'spelling', 'writing', 'drawing', 'reading', 'socialstudies', 'science', 'generalScience', 'hygiene',
   'physicalEducation', 'bible' , 'counting', 'rhyming/music', 'formationofnumbers', 'numberrecognition',
   'letterrecognition', 'colorrecognition', 'formationofletters', 'coloring', 'bible', 'history', 'geography', 'civics', 'literature', 'computer', 

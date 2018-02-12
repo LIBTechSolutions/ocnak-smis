@@ -144,9 +144,9 @@ export default class Grade extends Component {
           </div>
         </div>
         <div className='form-row'>
-          <label className='bat'>Mathematics
-          <input name={fieldName('mathematics')}
-            value={props[fieldName('mathematics')]}
+          <label className='bat'>Math
+          <input name={fieldName('math')}
+            value={props[fieldName('math')]}
             type='number'
             placeholder='Math Grade'
             onChange={handleChange}
