@@ -91,17 +91,20 @@ export class GradeStudents extends React.Component {
             <div style={{ marginLeft: '100px', paddingRight: '10rem', paddingBottom: '3rem' }}>
             <tbody style={{border: '1px solid black'}}>
             {docs.map((studentDetail) => <GradeSheetHeader key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <EnglishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <MathSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SocialStudiesSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <GeneralScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <HealthScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <ReadingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <WritingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <DrawingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SpellingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <PhonicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SpanishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <Bible key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <FormationOfNumbers key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <NumberRecog key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <LetterRecog key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <Coloring key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <SocialStudiesSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <DrawingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <LetterFormation key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <Hygiene key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <ColorRecog key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <Counting key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <Rhyming key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <PhonicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <Writing key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PhysicalEducationSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PeriodAverage key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             </tbody>
@@ -443,11 +446,11 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
 function Rhyming (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_rhyming/music, studentDetail.schoolInfo.grade02_rhyming/music,
-    studentDetail.schoolInfo.grade03_rhyming/music, studentDetail.schoolInfo.grade04_rhyming/music].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_rhyming, studentDetail.schoolInfo.grade02_rhyming,
+    studentDetail.schoolInfo.grade03_rhyming, studentDetail.schoolInfo.grade04_rhyming].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_rhyming/music, studentDetail.schoolInfo.grade06_rhyming/music,
-    studentDetail.schoolInfo.grade07_rhyming/music, studentDetail.schoolInfo.grade08_rhyming/music].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_rhyming, studentDetail.schoolInfo.grade06_rhyming,
+    studentDetail.schoolInfo.grade07_rhyming, studentDetail.schoolInfo.grade08_rhyming].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -474,16 +477,16 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Rhyming/Music</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_rhyming/music}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_rhyming/music}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_rhyming/music}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_rhyming/music}</td>
+      <td style={styles.titleStyle}>Rhyming</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_rhyming}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_rhyming}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_rhyming}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_rhyming}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_rhyming/music}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_rhyming/music}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_rhyming/music}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_rhyming/music}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_rhyming}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_rhyming}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_rhyming}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_rhyming}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
@@ -547,7 +550,7 @@ function NumberRecog (props) {
     studentDetail.schoolInfo.grade03_numberrecognition, studentDetail.schoolInfo.grade04_numberrecognition].map(Number)
 
 var peSemAverage2 = [studentDetail.schoolInfo.grade05_numberrecognition, studentDetail.schoolInfo.grade06_numberrecognition,
-    studentDetail.schoolInfo.grade07_numberrecognitiong, studentDetail.schoolInfo.grade08_numberrecognition].map(Number)
+    studentDetail.schoolInfo.grade07_numberrecognition, studentDetail.schoolInfo.grade08_numberrecognition].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -582,7 +585,7 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
       <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_numberrecognition}</td>
       <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_numberrecognition}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_numberrecognitiong}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_numberrecognition}</td>
       <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_numberrecognition}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
@@ -643,8 +646,8 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
 function LetterRecog (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.letterrecognition, studentDetail.schoolInfo.letterrecognition,
-    studentDetail.schoolInfo.grade03_letterrecognition, studentDetail.schoolInfo.letterrecognition].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_letterrecognition, studentDetail.schoolInfo.grade02_letterrecognition,
+    studentDetail.schoolInfo.grade03_letterrecognition, studentDetail.schoolInfo.grade04_letterrecognition].map(Number)
 
 var peSemAverage2 = [studentDetail.schoolInfo.grade05_letterrecognition, studentDetail.schoolInfo.grade06_letterrecognition,
     studentDetail.schoolInfo.grade07_letterrecognition, studentDetail.schoolInfo.grade08_letterrecognition].map(Number)
@@ -841,106 +844,8 @@ function LetterFormation (props) {
   )
 }
 
-function ColorRecog (props) {
-  let {studentDetail} = props
-
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_colorrecognition, studentDetail.schoolInfo.grade02_colorrecognition,
-    studentDetail.schoolInfo.grade03_colorrecognition, studentDetail.schoolInfo.grade04_colorrecognition].map(Number)
-
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_colorrecognition, studentDetail.schoolInfo.grade06_colorrecognition,
-    studentDetail.schoolInfo.grade07_colorrecognition, studentDetail.schoolInfo.grade08_colorrecognition].map(Number)
-
-function getSum (total, num) {
-return total + num
-}
-
-function getAverage (total, num) {
-return total / num
-}
 
 
-let semAverage1 = peSemAverage1.reduce(getSum)
-let peAverage1 = [semAverage1, peSemAverage1.length]
-let peGradeAverage1 = peAverage1.reduce(getAverage)
-let peFinalAverage1 = Math.round(peGradeAverage1 * 10) / 10
-
-let semAverage2 = peSemAverage2.reduce(getSum)
-let peAverage2 = [semAverage2, peSemAverage2.length]
-let peGradeAverage2 = peAverage2.reduce(getAverage)
-let peFinalAverage2 = Math.round(peGradeAverage2 * 10) / 10
-
-let yrAverage = peFinalAverage1 + peFinalAverage2
-let peYrAverage = yrAverage / 2 
-let finalyrAverage = Math.round(peYrAverage * 10) / 10
-  
-  return (
-    <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Color Recognition</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_colorrecognition}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_colorrecognition}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_colorrecognition}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_colorrecognition}</td>
-      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_colorrecognition}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_colorrecognition}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_colorrecognition}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_colorrecognition}</td>
-      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
-      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
-    </tr>
-  )
-}
-
-
-function PhonicsSubject (props) {
-  let {studentDetail} = props
-
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade02_phonics,
-    studentDetail.schoolInfo.grade03_phonics, studentDetail.schoolInfo.grade04_phonics].map(Number)
-
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade06_phonics,
-    studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade08_phonics].map(Number)
-
-function getSum (total, num) {
-return total + num
-}
-
-function getAverage (total, num) {
-return total / num
-}
-
-
-let semAverage1 = peSemAverage1.reduce(getSum)
-let peAverage1 = [semAverage1, peSemAverage1.length]
-let peGradeAverage1 = peAverage1.reduce(getAverage)
-let peFinalAverage1 = Math.round(peGradeAverage1 * 10) / 10
-
-let semAverage2 = peSemAverage2.reduce(getSum)
-let peAverage2 = [semAverage2, peSemAverage2.length]
-let peGradeAverage2 = peAverage2.reduce(getAverage)
-let peFinalAverage2 = Math.round(peGradeAverage2 * 10) / 10
-
-let yrAverage = peFinalAverage1 + peFinalAverage2
-let peYrAverage = yrAverage / 2 
-let finalyrAverage = Math.round(peYrAverage * 10) / 10
-  
-  return (
-    <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Phonics</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_phonics}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_phonics}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_phonics}</td>
-      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_phonics}</td>
-      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
-      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
-    </tr>
-  )
-}
 
 
 function SocialStudiesSubject (props) {
@@ -1148,22 +1053,22 @@ function PhysicalEducationSubject (props) {
 function PeriodAverage (props) {Bible
   let {studentDetail} = props
 
-  var periodOne = [studentDetail.schoolInfo.grade01_bible, studentDetail.schoolInfo.grade01_writing, studentDetail.schoolInfo.grade01_counting, studentDetail.schoolInfo.grade01_rhyming/music,  studentDetail.schoolInfo.grade01_formationofnumbers, studentDetail.schoolInfo.grade01_numberrecognition, studentDetail.schoolInfo.grade01_hygiene, studentDetail.schoolInfo.grade01_cletterrecognition, studentDetail.schoolInfo.grade01_colorrecognition, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_formationofletters, studentDetail.schoolInfo.grade01_colorrecognition, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_socialStudies, studentDetail.schoolInfo.grade01_coloring, studentDetail.schoolInfo.grade01_drawing, studentDetail.schoolInfo.grade01_physicalEducation, ].map(Number)
+  var periodOne = [studentDetail.schoolInfo.grade01_bible, studentDetail.schoolInfo.grade01_writing, studentDetail.schoolInfo.grade01_counting, studentDetail.schoolInfo.grade01_rhyming,  studentDetail.schoolInfo.grade01_formationofnumbers, studentDetail.schoolInfo.grade01_numberrecognition, studentDetail.schoolInfo.grade01_hygiene, studentDetail.schoolInfo.grade01_letterrecognition, studentDetail.schoolInfo.grade01_colorrecognition, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_formationofletters, studentDetail.schoolInfo.grade01_colorrecognition, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_socialStudies, studentDetail.schoolInfo.grade01_coloring, studentDetail.schoolInfo.grade01_drawing, studentDetail.schoolInfo.grade01_physicalEducation, ].map(Number)
   
-  var periodTwo = [studentDetail.schoolInfo.grade02_bible, studentDetail.schoolInfo.grade02_writing, studentDetail.schoolInfo.grade02_counting, studentDetail.schoolInfo.grade02_rhyming/music,  studentDetail.schoolInfo.grade02_formationofnumbers, studentDetail.schoolInfo.grade02_numberrecognition, studentDetail.schoolInfo.grade02_hygiene, studentDetail.schoolInfo.grade02_cletterrecognition, studentDetail.schoolInfo.grade02_colorrecognition, studentDetail.schoolInfo.grade02_phonics, studentDetail.schoolInfo.grade02_formationofletters, studentDetail.schoolInfo.grade02_colorrecognition, studentDetail.schoolInfo.grade02_phonics, studentDetail.schoolInfo.grade02_socialStudies, studentDetail.schoolInfo.grade02_coloring, studentDetail.schoolInfo.grade02_drawing, studentDetail.schoolInfo.grade02_physicalEducation, ].map(Number)
+  var periodTwo = [studentDetail.schoolInfo.grade02_bible, studentDetail.schoolInfo.grade02_writing, studentDetail.schoolInfo.grade02_counting, studentDetail.schoolInfo.grade02_rhyming,  studentDetail.schoolInfo.grade02_formationofnumbers, studentDetail.schoolInfo.grade02_numberrecognition, studentDetail.schoolInfo.grade02_hygiene, studentDetail.schoolInfo.grade02_letterrecognition, studentDetail.schoolInfo.grade02_colorrecognition, studentDetail.schoolInfo.grade02_phonics, studentDetail.schoolInfo.grade02_formationofletters, studentDetail.schoolInfo.grade02_colorrecognition, studentDetail.schoolInfo.grade02_phonics, studentDetail.schoolInfo.grade02_socialStudies, studentDetail.schoolInfo.grade02_coloring, studentDetail.schoolInfo.grade02_drawing, studentDetail.schoolInfo.grade02_physicalEducation, ].map(Number)
   
   
-  var periodThree = [studentDetail.schoolInfo.grade03_bible, studentDetail.schoolInfo.grade03_writing, studentDetail.schoolInfo.grade03_counting, studentDetail.schoolInfo.grade03_rhyming/music,  studentDetail.schoolInfo.grade03_formationofnumbers, studentDetail.schoolInfo.grade03_numberrecognition, studentDetail.schoolInfo.grade03_hygiene, studentDetail.schoolInfo.grade03_cletterrecognition, studentDetail.schoolInfo.grade03_colorrecognition, studentDetail.schoolInfo.grade03_phonics, studentDetail.schoolInfo.grade03_formationofletters, studentDetail.schoolInfo.grade03_colorrecognition, studentDetail.schoolInfo.grade03_phonics, studentDetail.schoolInfo.grade03_socialStudies, studentDetail.schoolInfo.grade03_coloring, studentDetail.schoolInfo.grade03_drawing, studentDetail.schoolInfo.grade03_physicalEducation, ].map(Number)
+  var periodThree = [studentDetail.schoolInfo.grade03_bible, studentDetail.schoolInfo.grade03_writing, studentDetail.schoolInfo.grade03_counting, studentDetail.schoolInfo.grade03_rhyming,  studentDetail.schoolInfo.grade03_formationofnumbers, studentDetail.schoolInfo.grade03_numberrecognition, studentDetail.schoolInfo.grade03_hygiene, studentDetail.schoolInfo.grade03_letterrecognition, studentDetail.schoolInfo.grade03_colorrecognition, studentDetail.schoolInfo.grade03_phonics, studentDetail.schoolInfo.grade03_formationofletters, studentDetail.schoolInfo.grade03_colorrecognition, studentDetail.schoolInfo.grade03_phonics, studentDetail.schoolInfo.grade03_socialStudies, studentDetail.schoolInfo.grade03_coloring, studentDetail.schoolInfo.grade03_drawing, studentDetail.schoolInfo.grade03_physicalEducation, ].map(Number)
   
-  var periodFour = [studentDetail.schoolInfo.grade04_bible, studentDetail.schoolInfo.grade04_writing, studentDetail.schoolInfo.grade04_counting, studentDetail.schoolInfo.grade04_rhyming/music,  studentDetail.schoolInfo.grade04_formationofnumbers, studentDetail.schoolInfo.grade04_numberrecognition, studentDetail.schoolInfo.grade04_hygiene, studentDetail.schoolInfo.grade04_cletterrecognition, studentDetail.schoolInfo.grade04_colorrecognition, studentDetail.schoolInfo.grade04_phonics, studentDetail.schoolInfo.grade04_formationofletters, studentDetail.schoolInfo.grade04_colorrecognition, studentDetail.schoolInfo.grade04_phonics, studentDetail.schoolInfo.grade04_socialStudies, studentDetail.schoolInfo.grade04_coloring, studentDetail.schoolInfo.grade04_drawing, studentDetail.schoolInfo.grade04_physicalEducation, ].map(Number)
+  var periodFour = [studentDetail.schoolInfo.grade04_bible, studentDetail.schoolInfo.grade04_writing, studentDetail.schoolInfo.grade04_counting, studentDetail.schoolInfo.grade04_rhyming,  studentDetail.schoolInfo.grade04_formationofnumbers, studentDetail.schoolInfo.grade04_numberrecognition, studentDetail.schoolInfo.grade04_hygiene, studentDetail.schoolInfo.grade04_letterrecognition, studentDetail.schoolInfo.grade04_colorrecognition, studentDetail.schoolInfo.grade04_phonics, studentDetail.schoolInfo.grade04_formationofletters, studentDetail.schoolInfo.grade04_colorrecognition, studentDetail.schoolInfo.grade04_phonics, studentDetail.schoolInfo.grade04_socialStudies, studentDetail.schoolInfo.grade04_coloring, studentDetail.schoolInfo.grade04_drawing, studentDetail.schoolInfo.grade04_physicalEducation, ].map(Number)
   
-    var periodFive = [studentDetail.schoolInfo.grade05_bible, studentDetail.schoolInfo.grade05_writing, studentDetail.schoolInfo.grade05_counting, studentDetail.schoolInfo.grade05_rhyming/music,  studentDetail.schoolInfo.grade05_formationofnumbers, studentDetail.schoolInfo.grade05_numberrecognition, studentDetail.schoolInfo.grade05_hygiene, studentDetail.schoolInfo.grade05_cletterrecognition, studentDetail.schoolInfo.grade05_colorrecognition, studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade05_formationofletters, studentDetail.schoolInfo.grade05_colorrecognition, studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade05_socialStudies, studentDetail.schoolInfo.grade05_coloring, studentDetail.schoolInfo.grade05_drawing, studentDetail.schoolInfo.grade05_physicalEducation, ].map(Number)
+    var periodFive = [studentDetail.schoolInfo.grade05_bible, studentDetail.schoolInfo.grade05_writing, studentDetail.schoolInfo.grade05_counting, studentDetail.schoolInfo.grade05_rhyming,  studentDetail.schoolInfo.grade05_formationofnumbers, studentDetail.schoolInfo.grade05_numberrecognition, studentDetail.schoolInfo.grade05_hygiene, studentDetail.schoolInfo.grade05_letterrecognition, studentDetail.schoolInfo.grade05_colorrecognition, studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade05_formationofletters, studentDetail.schoolInfo.grade05_colorrecognition, studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade05_socialStudies, studentDetail.schoolInfo.grade05_coloring, studentDetail.schoolInfo.grade05_drawing, studentDetail.schoolInfo.grade05_physicalEducation, ].map(Number)
     
-    var periodSix = [studentDetail.schoolInfo.grade06_bible, studentDetail.schoolInfo.grade06_writing, studentDetail.schoolInfo.grade06_counting, studentDetail.schoolInfo.grade06_rhyming/music,  studentDetail.schoolInfo.grade06_formationofnumbers, studentDetail.schoolInfo.grade06_numberrecognition, studentDetail.schoolInfo.grade06_hygiene, studentDetail.schoolInfo.grade06_cletterrecognition, studentDetail.schoolInfo.grade06_colorrecognition, studentDetail.schoolInfo.grade06_phonics, studentDetail.schoolInfo.grade06_formationofletters, studentDetail.schoolInfo.grade06_colorrecognition, studentDetail.schoolInfo.grade06_phonics, studentDetail.schoolInfo.grade06_socialStudies, studentDetail.schoolInfo.grade06_coloring, studentDetail.schoolInfo.grade06_drawing, studentDetail.schoolInfo.grade06_physicalEducation, ].map(Number)
+    var periodSix = [studentDetail.schoolInfo.grade06_bible, studentDetail.schoolInfo.grade06_writing, studentDetail.schoolInfo.grade06_counting, studentDetail.schoolInfo.grade06_rhyming,  studentDetail.schoolInfo.grade06_formationofnumbers, studentDetail.schoolInfo.grade06_numberrecognition, studentDetail.schoolInfo.grade06_hygiene, studentDetail.schoolInfo.grade06_letterrecognition, studentDetail.schoolInfo.grade06_colorrecognition, studentDetail.schoolInfo.grade06_phonics, studentDetail.schoolInfo.grade06_formationofletters, studentDetail.schoolInfo.grade06_colorrecognition, studentDetail.schoolInfo.grade06_phonics, studentDetail.schoolInfo.grade06_socialStudies, studentDetail.schoolInfo.grade06_coloring, studentDetail.schoolInfo.grade06_drawing, studentDetail.schoolInfo.grade06_physicalEducation, ].map(Number)
     
-    var periodSeven = [studentDetail.schoolInfo.grade07_bible, studentDetail.schoolInfo.grade07_writing, studentDetail.schoolInfo.grade07_counting, studentDetail.schoolInfo.grade07_rhyming/music,  studentDetail.schoolInfo.grade07_formationofnumbers, studentDetail.schoolInfo.grade07_numberrecognition, studentDetail.schoolInfo.grade07_hygiene, studentDetail.schoolInfo.grade07_cletterrecognition, studentDetail.schoolInfo.grade07_colorrecognition, studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade07_formationofletters, studentDetail.schoolInfo.grade07_colorrecognition, studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade07_socialStudies, studentDetail.schoolInfo.grade07_coloring, studentDetail.schoolInfo.grade07_drawing, studentDetail.schoolInfo.grade07_physicalEducation, ].map(Number)
+    var periodSeven = [studentDetail.schoolInfo.grade07_bible, studentDetail.schoolInfo.grade07_writing, studentDetail.schoolInfo.grade07_counting, studentDetail.schoolInfo.grade07_rhyming,  studentDetail.schoolInfo.grade07_formationofnumbers, studentDetail.schoolInfo.grade07_numberrecognition, studentDetail.schoolInfo.grade07_hygiene, studentDetail.schoolInfo.grade07_letterrecognition, studentDetail.schoolInfo.grade07_colorrecognition, studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade07_formationofletters, studentDetail.schoolInfo.grade07_colorrecognition, studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade07_socialStudies, studentDetail.schoolInfo.grade07_coloring, studentDetail.schoolInfo.grade07_drawing, studentDetail.schoolInfo.grade07_physicalEducation, ].map(Number)
 
-      var periodEight = [studentDetail.schoolInfo.grade08_bible, studentDetail.schoolInfo.grade08_writing, studentDetail.schoolInfo.grade08_counting, studentDetail.schoolInfo.grade08_rhyming/music,  studentDetail.schoolInfo.grade08_formationofnumbers, studentDetail.schoolInfo.grade08_numberrecognition, studentDetail.schoolInfo.grade08_hygiene, studentDetail.schoolInfo.grade08_cletterrecognition, studentDetail.schoolInfo.grade08_colorrecognition, studentDetail.schoolInfo.grade08_phonics, studentDetail.schoolInfo.grade08_formationofletters, studentDetail.schoolInfo.grade08_colorrecognition, studentDetail.schoolInfo.grade08_phonics, studentDetail.schoolInfo.grade08_socialStudies, studentDetail.schoolInfo.grade08_coloring, studentDetail.schoolInfo.grade08_drawing, studentDetail.schoolInfo.grade08_physicalEducation, ].map(Number)
+      var periodEight = [studentDetail.schoolInfo.grade08_bible, studentDetail.schoolInfo.grade08_writing, studentDetail.schoolInfo.grade08_counting, studentDetail.schoolInfo.grade08_rhyming,  studentDetail.schoolInfo.grade08_formationofnumbers, studentDetail.schoolInfo.grade08_numberrecognition, studentDetail.schoolInfo.grade08_hygiene, studentDetail.schoolInfo.grade08_letterrecognition, studentDetail.schoolInfo.grade08_colorrecognition, studentDetail.schoolInfo.grade08_phonics, studentDetail.schoolInfo.grade08_formationofletters, studentDetail.schoolInfo.grade08_colorrecognition, studentDetail.schoolInfo.grade08_phonics, studentDetail.schoolInfo.grade08_socialStudies, studentDetail.schoolInfo.grade08_coloring, studentDetail.schoolInfo.grade08_drawing, studentDetail.schoolInfo.grade08_physicalEducation, ].map(Number)
       
 
   function getSum (total, num) {

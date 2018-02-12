@@ -1,6 +1,8 @@
 'use strict'
 import React from 'react'
 import classnames from 'classnames'
+import KindergartenOne from './KindergartenOne'
+import KindergartenTwo from './KindergartenTwo'
 import GradeOne from './GradeOne'
 import GradeTwo from './GradeTwo'
 import GradeThree from './GradeThree'
@@ -18,6 +20,8 @@ export default class AppHome extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      kindergartenone: false,
+      kindergartentwo: false,
       first: false,
       second: false,
       third: false,
@@ -32,6 +36,8 @@ export default class AppHome extends React.Component {
       twelve: false,
       view: 'full-view'
     }
+    this.handleKindergartenOne = this.handleKindergartenOne.bind(this)
+    this.handleKindergartenTwo = this.handleKindergartenTwo.bind(this)
     this.handleFirstGrade = this.handleFirstGrade.bind(this)
     this.handleSecondGrade = this.handleSecondGrade.bind(this)
     this.handleThirdGrade = this.handleThirdGrade.bind(this)
@@ -48,6 +54,8 @@ export default class AppHome extends React.Component {
   }
   closeProfile () {
     this.setState({
+      kindergartenone: false,
+      kindergartentwo: false,
       first: false,
       second: false,
       third: false,
@@ -63,9 +71,49 @@ export default class AppHome extends React.Component {
     })
   }
 
+  handleKindergartenOne () {
+    this.setState({
+      view: 'split-view',
+      kindergartenone: true,
+      kindergartentwo: false,
+      first: false,
+      second: false,
+      third: false,
+      fourth: false,
+      fifth: false,
+      sixth: false,
+      seven: false,
+      eight: false,
+      nine: false,
+      ten: false,
+      eleven: false,
+      twelve: false
+    })
+  }
+  handleKindergartenTwo () {
+    this.setState({
+      view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: true,
+      first: false,
+      second: false,
+      third: false,
+      fourth: false,
+      fifth: false,
+      sixth: false,
+      seven: false,
+      eight: false,
+      nine: false,
+      ten: false,
+      eleven: false,
+      twelve: false
+    })
+  }
   handleFirstGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       first: true,
       second: false,
       third: false,
@@ -83,6 +131,8 @@ export default class AppHome extends React.Component {
   handleSecondGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       second: true,
       first: false,
       third: false,
@@ -100,6 +150,8 @@ export default class AppHome extends React.Component {
   handleThirdGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       third: true,
       first: false,
       second: false,
@@ -117,6 +169,8 @@ export default class AppHome extends React.Component {
   handleFourthGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       fourth: true,
       third: false,
       first: false,
@@ -134,6 +188,8 @@ export default class AppHome extends React.Component {
   handleFifthGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       fifth: true,
       fourth: false,
       third: false,
@@ -151,6 +207,8 @@ export default class AppHome extends React.Component {
   handleSixthGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       sixth: true,
       fifth: false,
       fourth: false,
@@ -168,6 +226,8 @@ export default class AppHome extends React.Component {
   handleSevenGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       seven: true,
       sixth: false,
       fifth: false,
@@ -185,6 +245,8 @@ export default class AppHome extends React.Component {
   handleEightGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       eight: true,
       seven: false,
       sixth: false,
@@ -202,6 +264,8 @@ export default class AppHome extends React.Component {
   handleNineGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       nine: true,
       seven: false,
       sixth: false,
@@ -219,6 +283,8 @@ export default class AppHome extends React.Component {
   handleTenGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       ten: true,
       nine: false,
       seven: false,
@@ -236,6 +302,8 @@ export default class AppHome extends React.Component {
   handleElevenGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       eleven: true,
       ten: false,
       nine: false,
@@ -253,6 +321,8 @@ export default class AppHome extends React.Component {
   handleTwelveGrade () {
     this.setState({
       view: 'split-view',
+      kindergartenone: false,
+      kindergartentwo: false,
       twelve: true,
       ten: false,
       nine: false,
@@ -297,7 +367,18 @@ export default class AppHome extends React.Component {
                     <a href='#'><i className='fa fa-dashboard fa-fw' /> Dashboard</a>
                   </li>
                   <li>
-                    <a><i className='fa fa-university' />Sections<span className='fa arrow' /></a>
+                    <a href='#'><i className='fa fa-university' />Kindergarten<span className='fa arrow' /></a>
+                    <ul className='nav nav-second-level'>
+                        <li>
+                        <a onClick={this.handleKindergartenOne} href='#'><i className='fa fa-pencil-square-o' />Kindergarten One</a>
+                      </li>
+                        <li>
+                        <a onClick={this.handleKindergartenTwo} href='#'><i className='fa fa-pencil-square-o' />Kindergarten Two</a>
+                      </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a><i className='fa fa-university' />Elementry<span className='fa arrow' /></a>
                     <ul className='nav nav-second-level'>
                         <li>
                         <a onClick={this.handleFirstGrade} href='#'><i className='fa fa-pencil-square-o' />Grade One</a>
@@ -321,7 +402,7 @@ export default class AppHome extends React.Component {
 
                   </li>
                   <li>
-                    <a href='#'><i className='fa fa-university' />Sections<span className='fa arrow' /></a>
+                    <a href='#'><i className='fa fa-university' />Junior High<span className='fa arrow' /></a>
                     <ul className='nav nav-second-level'>
                         <li>
                         <a onClick={this.handleSevenGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Seven</a>
@@ -332,6 +413,11 @@ export default class AppHome extends React.Component {
                         <li>
                         <a onClick={this.handleNineGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Nine</a>
                       </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href='#'><i className='fa fa-university' />Senior High<span className='fa arrow' /></a>
+                    <ul className='nav nav-second-level'>
                         <li>
                         <a onClick={this.handleTenGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Ten</a>
                       </li>
@@ -342,7 +428,6 @@ export default class AppHome extends React.Component {
                         <a onClick={this.handleTwelveGrade} href='#'><i className='fa fa-pencil-square-o' />Grade Twelve</a>
                       </li>
                       </ul>
-
                   </li>
                 </ul>
               </div>
@@ -448,6 +533,16 @@ export default class AppHome extends React.Component {
                   </a>
                 </div>
               </div>
+              {this.state.kindergartenone ? <div className={homepage}>
+                <div className='home-page'>
+                  <KindergartenOne closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
+              {this.state.kindergartentwo ? <div className={homepage}>
+                <div className='home-page'>
+                  <KindergartenTwo closeProfile={this.closeProfile} {...this.props} />
+                </div>
+              </div> : null}
               {this.state.first ? <div className={homepage}>
                 <div className='home-page'>
                   <GradeOne closeProfile={this.closeProfile} {...this.props} />

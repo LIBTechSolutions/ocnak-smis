@@ -263,8 +263,8 @@ export default class Grade extends Component {
           />
           </label>
           <label className='bat'>Rhyming/Music
-        <input name={fieldName('rhyming/music')}
-          value={props[fieldName('rhyming/music')]}
+        <input name={fieldName('rhyming')}
+          value={props[fieldName('rhyming')]}
           type='number'
           placeholder='Rhyming/Music Grade'
           onChange={handleChange}

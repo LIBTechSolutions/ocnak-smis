@@ -5,7 +5,7 @@ import React from 'react'
 import Print from 'rc-print'
 import ProfileTool from '../../elements/ProfileTool'
 
-export default function GradeOne (props) {
+export default function GradeTwo (props) {
   let {closeProfile} = props
   const complete = props.studentDetails.filter(studentDetail => !!studentDetail.schoolInfo && !!studentDetail.complete && studentDetail.schoolInfo.class === 'Grade Ten')
 
@@ -91,18 +91,18 @@ export class GradeStudents extends React.Component {
             <div style={{ marginLeft: '100px', paddingRight: '10rem', paddingBottom: '3rem' }}>
             <tbody style={{border: '1px solid black'}}>
             {docs.map((studentDetail) => <GradeSheetHeader key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <Bible key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <MathSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             {docs.map((studentDetail) => <EnglishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <MathSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SocialStudiesSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <GeneralScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <HealthScienceSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <ReadingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <WritingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <DrawingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SpellingSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <PhonicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <SpanishSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
-            {docs.map((studentDetail) => <PhysicalEducationSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <BiologySubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <HistorySubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <ComputerSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <LiteratureSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <GeographySubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <ChemistrySubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
+            {docs.map((studentDetail) => <PhysicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <EconomicsSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
+            {docs.map((studentDetail) => <ROTCSubject key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}
             {docs.map((studentDetail) => <PeriodAverage key={studentDetail._id} studentDetail={studentDetail} {...this.props} />)}            
             </tbody>
             </div>
@@ -290,14 +290,14 @@ function GradeSheetHeader (props) {
   )
 }
 
-function EnglishSubject (props) {
+function Bible (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_english, studentDetail.schoolInfo.grade02_english,
-    studentDetail.schoolInfo.grade03_english, studentDetail.schoolInfo.grade04_english].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_bible, studentDetail.schoolInfo.grade02_bible,
+    studentDetail.schoolInfo.grade03_bible, studentDetail.schoolInfo.grade04_bible].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_english, studentDetail.schoolInfo.grade06_english,
-    studentDetail.schoolInfo.grade07_english, studentDetail.schoolInfo.grade08_english].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_bible, studentDetail.schoolInfo.grade06_bible,
+    studentDetail.schoolInfo.grade07_bible, studentDetail.schoolInfo.grade08_bible].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -324,16 +324,16 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>English</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_english}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_english}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_english}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_english}</td>
+      <td style={styles.titleStyle}>Bible</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_bible}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_bible}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_bible}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_bible}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_english}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_english}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_english}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_bible}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_bible}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_bible}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_bible}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
@@ -390,14 +390,14 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   )
 }
 
-function SocialStudiesSubject (props) {
+function EnglishSubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_socialStudies, studentDetail.schoolInfo.grade02_socialStudies,
-    studentDetail.schoolInfo.grade03_socialStudies, studentDetail.schoolInfo.grade04_socialStudies].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_english, studentDetail.schoolInfo.grade02_english,
+    studentDetail.schoolInfo.grade03_english, studentDetail.schoolInfo.grade04_english].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_socialStudies, studentDetail.schoolInfo.grade06_socialStudies,
-    studentDetail.schoolInfo.grade07_socialStudies, studentDetail.schoolInfo.grade08_socialStudies].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_english, studentDetail.schoolInfo.grade06_english,
+    studentDetail.schoolInfo.grade07_english, studentDetail.schoolInfo.grade08_english].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -424,30 +424,30 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Social Studies</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_socialStudies}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_socialStudies}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_socialStudies}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_socialStudies}</td>
+      <td style={styles.titleStyle}>English</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_english}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_english}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_english}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_socialStudies}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_socialStudies}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_socialStudies}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_socialStudies}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_english}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_english}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-function GeneralScienceSubject (props) {
+function BiologySubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_generalScience, studentDetail.schoolInfo.grade02_generalScience,
-    studentDetail.schoolInfo.grade03_generalScience, studentDetail.schoolInfo.grade04_generalScience].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_biology, studentDetail.schoolInfo.grade02_biology,
+    studentDetail.schoolInfo.grade03_generalScience, studentDetail.schoolInfo.grade04_biology].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_generalScience, studentDetail.schoolInfo.grade06_generalScience,
-    studentDetail.schoolInfo.grade07_generalScience, studentDetail.schoolInfo.grade08_generalScience].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_biology, studentDetail.schoolInfo.grade06_biology,
+    studentDetail.schoolInfo.grade07_biology, studentDetail.schoolInfo.grade08_biology].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -474,30 +474,31 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>General Science</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_generalScience}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_generalScience}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_generalScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_generalScience}</td>
+      <td style={styles.titleStyle}>Biology</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_biology}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_biology}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_biology}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_biology}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_generalScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_generalScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_generalScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_generalScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_biology}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_biology}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_biology}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_biology}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-function HealthScienceSubject (props) {
+
+function HistorySubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_healthScience, studentDetail.schoolInfo.grade02_healthScience,
-    studentDetail.schoolInfo.grade03_healthScience, studentDetail.schoolInfo.grade04_healthScience].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_history, studentDetail.schoolInfo.grade02_history,
+    studentDetail.schoolInfo.grade03_history, studentDetail.schoolInfo.grade04_history].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_healthScience, studentDetail.schoolInfo.grade06_healthScience,
-    studentDetail.schoolInfo.grade07_healthScience, studentDetail.schoolInfo.grade08_healthScience].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_history, studentDetail.schoolInfo.grade06_history,
+    studentDetail.schoolInfo.grade07_history, studentDetail.schoolInfo.grade08_history].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -524,30 +525,32 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Health Science</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_healthScience}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_healthScience}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_healthScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_healthScience}</td>
+      <td style={styles.titleStyle}>History</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_history}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_history}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_history}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_history}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_healthScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_healthScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_healthScience}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_healthScience}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_history}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_history}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_history}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_history}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-function ReadingSubject (props) {
+
+
+function ComputerSubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_reading, studentDetail.schoolInfo.grade02_reading,
-    studentDetail.schoolInfo.grade03_reading, studentDetail.schoolInfo.grade04_reading].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_computer, studentDetail.schoolInfo.grade02_computer,
+    studentDetail.schoolInfo.grade03_computer, studentDetail.schoolInfo.grade04_computer].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_reading, studentDetail.schoolInfo.grade06_reading,
-    studentDetail.schoolInfo.grade07_reading, studentDetail.schoolInfo.grade08_reading].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_computer, studentDetail.schoolInfo.grade06_computer,
+    studentDetail.schoolInfo.grade07_computer, studentDetail.schoolInfo.grade08_computer].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -574,30 +577,31 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Reading</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_reading}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_reading}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_reading}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_reading}</td>
+      <td style={styles.titleStyle}>Computer</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_computer}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_computer}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_computer}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_computer}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_reading}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_reading}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_reading}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_reading}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_computer}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_computer}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_computer}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_computer}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-function WritingSubject (props) {
+
+function LiteratureSubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_writing, studentDetail.schoolInfo.grade02_writing,
-    studentDetail.schoolInfo.grade03_writing, studentDetail.schoolInfo.grade04_writing].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_literature, studentDetail.schoolInfo.grade02_literature,
+    studentDetail.schoolInfo.grade03_literature, studentDetail.schoolInfo.grade04_literature].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_writing, studentDetail.schoolInfo.grade06_writing,
-    studentDetail.schoolInfo.grade07_writing, studentDetail.schoolInfo.grade08_writing].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_literature, studentDetail.schoolInfo.grade06_literature,
+    studentDetail.schoolInfo.grade07_literature, studentDetail.schoolInfo.grade08_literature].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -624,30 +628,31 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Writing</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_writing}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_writing}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_writing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_writing}</td>
+      <td style={styles.titleStyle}>Literature</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_literature}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_literature}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_literature}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_literature}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_writing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_writing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_writing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_writing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_literature}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_literature}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_literature}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_literature}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-function DrawingSubject (props) {
+
+function GeographySubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_drawing, studentDetail.schoolInfo.grade02_drawing,
-    studentDetail.schoolInfo.grade03_drawing, studentDetail.schoolInfo.grade04_drawing].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_geography, studentDetail.schoolInfo.grade02_geography,
+    studentDetail.schoolInfo.grade03_geography, studentDetail.schoolInfo.grade04_geography].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_drawing, studentDetail.schoolInfo.grade06_drawing,
-    studentDetail.schoolInfo.grade07_drawing, studentDetail.schoolInfo.grade08_drawing].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_geography, studentDetail.schoolInfo.grade06_geography,
+    studentDetail.schoolInfo.grade07_geography, studentDetail.schoolInfo.grade08_geography].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -674,30 +679,30 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Drawing</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_drawing}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_drawing}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_drawing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_drawing}</td>
+      <td style={styles.titleStyle}>Geography</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_geography}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_geography}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_geography}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_geography}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_drawing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_drawing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_drawing}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_drawing}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_geography}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_geography}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_geography}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_geography}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-function SpellingSubject (props) {
+function ChemistrySubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_spelling, studentDetail.schoolInfo.grade02_spelling,
-    studentDetail.schoolInfo.grade03_spelling, studentDetail.schoolInfo.grade04_spelling].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_chemistry, studentDetail.schoolInfo.grade02_chemistry,
+    studentDetail.schoolInfo.grade03_chemistry, studentDetail.schoolInfo.grade04_chemistry].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_spelling, studentDetail.schoolInfo.grade06_spelling,
-    studentDetail.schoolInfo.grade07_spelling, studentDetail.schoolInfo.grade08_spelling].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_chemistry, studentDetail.schoolInfo.grade06_chemistry,
+    studentDetail.schoolInfo.grade07_chemistry, studentDetail.schoolInfo.grade08_chemistry].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -724,31 +729,30 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Spelling</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_spelling}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_spelling}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_spelling}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_spelling}</td>
+      <td style={styles.titleStyle}>Chemistry</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_chemistry}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_chemistry}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_chemistry}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_chemistry}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_spelling}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_spelling}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_spelling}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_spelling}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_chemistry}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_chemistry}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_chemistry}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_chemistry}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-
-function PhonicsSubject (props) {
+function PhysicsSubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade02_phonics,
-    studentDetail.schoolInfo.grade03_phonics, studentDetail.schoolInfo.grade04_phonics].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_physics, studentDetail.schoolInfo.grade02_physics,
+    studentDetail.schoolInfo.grade03_physics, studentDetail.schoolInfo.grade04_physics].map(Number)
 
-var peSemAverage2 = [studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade06_phonics,
-    studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade08_phonics].map(Number)
+var peSemAverage2 = [studentDetail.schoolInfo.grade05_physics, studentDetail.schoolInfo.grade06_physics,
+    studentDetail.schoolInfo.grade07_physics, studentDetail.schoolInfo.grade08_physics].map(Number)
 
 function getSum (total, num) {
 return total + num
@@ -775,80 +779,30 @@ let finalyrAverage = Math.round(peYrAverage * 10) / 10
   
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Phonics</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_phonics}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_phonics}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_phonics}</td>
+      <td style={styles.titleStyle}>Physics</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_physics}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_physics}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_physics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_physics}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_phonics}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_phonics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_physics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_physics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_physics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_physics}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
   )
 }
 
-function SpanishSubject (props) {
+function EconomicsSubject (props) {
   let {studentDetail} = props
 
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_spanish, studentDetail.schoolInfo.grade02_spanish,
-                      studentDetail.schoolInfo.grade03_spanish, studentDetail.schoolInfo.grade04_spanish].map(Number)
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_economics, studentDetail.schoolInfo.grade02_economics,
+                      studentDetail.schoolInfo.grade03_economics, studentDetail.schoolInfo.grade04_economics].map(Number)
   
-  var peSemAverage2 = [studentDetail.schoolInfo.grade05_spanish, studentDetail.schoolInfo.grade06_spanish,
-                      studentDetail.schoolInfo.grade07_spanish, studentDetail.schoolInfo.grade08_spanish].map(Number)
-  
-  function getSum (total, num) {
-    return total + num
-  }
-
-  function getAverage (total, num) {
-    return total / num
-  }
-
-
-  let semAverage1 = peSemAverage1.reduce(getSum)
-  let peAverage1 = [semAverage1, peSemAverage1.length]
-  let peGradeAverage1 = peAverage1.reduce(getAverage)
-  let peFinalAverage1 = Math.round(peGradeAverage1 * 10) / 10
-
-  let semAverage2 = peSemAverage2.reduce(getSum)
-  let peAverage2 = [semAverage2, peSemAverage2.length]
-  let peGradeAverage2 = peAverage2.reduce(getAverage)
-  let peFinalAverage2 = Math.round(peGradeAverage2 * 10) / 10
-
-  let yrAverage = peFinalAverage1 + peFinalAverage2
-  let peYrAverage = yrAverage / 2 
-  let finalyrAverage = Math.round(peYrAverage * 10) / 10
-  
-  return (
-    <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Spanish</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_spanish}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_spanish}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_spanish}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_spanish}</td>
-      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_spanish}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_spanish}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_spanish}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_spanish}</td>
-      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
-      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
-    </tr>
-  )
-}
-
-function PhysicalEducationSubject (props) {
-  let {studentDetail} = props
-
-  var peSemAverage1 = [studentDetail.schoolInfo.grade01_physicalEducation, studentDetail.schoolInfo.grade02_physicalEducation,
-                      studentDetail.schoolInfo.grade03_physicalEducation, studentDetail.schoolInfo.grade04_physicalEducation].map(Number)
-  
-  var peSemAverage2 = [studentDetail.schoolInfo.grade05_physicalEducation, studentDetail.schoolInfo.grade06_physicalEducation,
-                      studentDetail.schoolInfo.grade07_physicalEducation, studentDetail.schoolInfo.grade08_physicalEducation].map(Number)
+  var peSemAverage2 = [studentDetail.schoolInfo.grade05_economics, studentDetail.schoolInfo.grade06_economics,
+                      studentDetail.schoolInfo.grade07_economics, studentDetail.schoolInfo.grade08_economics].map(Number)
   
   function getSum (total, num) {
     return total + num
@@ -875,16 +829,66 @@ function PhysicalEducationSubject (props) {
 
   return (
     <tr style={styles.subFontStyle}>
-      <td style={styles.titleStyle}>Physical Education</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_physicalEducation}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_physicalEducation}</td>
-      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_physicalEducation}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_physicalEducation}</td>
+      <td style={styles.titleStyle}>Economics</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_economics}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_economics}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_economics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_economics}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_physicalEducation}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_physicalEducation}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_physicalEducation}</td>
-      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_physicalEducation}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_economics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_economics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_economics}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_economics}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
+      <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
+    </tr>
+  )
+}
+
+function ROTCSubject (props) {
+  let {studentDetail} = props
+
+  var peSemAverage1 = [studentDetail.schoolInfo.grade01_rotc, studentDetail.schoolInfo.grade02_rotc,
+                      studentDetail.schoolInfo.grade03_rotc, studentDetail.schoolInfo.grade04_rotc].map(Number)
+  
+  var peSemAverage2 = [studentDetail.schoolInfo.grade05_rotc, studentDetail.schoolInfo.grade06_rotc,
+                      studentDetail.schoolInfo.grade07_rotc, studentDetail.schoolInfo.grade08_rotc].map(Number)
+  
+  function getSum (total, num) {
+    return total + num
+  }
+
+  function getAverage (total, num) {
+    return total / num
+  }
+
+
+  let semAverage1 = peSemAverage1.reduce(getSum)
+  let peAverage1 = [semAverage1, peSemAverage1.length]
+  let peGradeAverage1 = peAverage1.reduce(getAverage)
+  let peFinalAverage1 = Math.round(peGradeAverage1 * 10) / 10
+
+  let semAverage2 = peSemAverage2.reduce(getSum)
+  let peAverage2 = [semAverage2, peSemAverage2.length]
+  let peGradeAverage2 = peAverage2.reduce(getAverage)
+  let peFinalAverage2 = Math.round(peGradeAverage2 * 10) / 10
+
+  let yrAverage = peFinalAverage1 + peFinalAverage2
+  let peYrAverage = yrAverage / 2 
+  let finalyrAverage = Math.round(peYrAverage * 10) / 10
+
+  return (
+    <tr style={styles.subFontStyle}>
+      <td style={styles.titleStyle}>ROTC</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade01_rotc}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade02_rotc}</td>
+      <td style={styles.subTitleStyle}>{studentDetail.schoolInfo.grade03_rotc}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade04_rotc}</td>
+      <td style={styles.headerTitleStyle}>{peFinalAverage1}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade05_rotc}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade06_rotc}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade07_rotc}</td>
+      <td style={styles.headerTitleStyle}>{studentDetail.schoolInfo.grade08_rotc}</td>
       <td style={styles.headerTitleStyle}>{peFinalAverage2}</td>
       <td style={styles.headerTitleStyle}>{finalyrAverage}</td>
     </tr>
@@ -894,54 +898,21 @@ function PhysicalEducationSubject (props) {
 function PeriodAverage (props) {
   let {studentDetail} = props
 
-  var periodOne = [studentDetail.schoolInfo.grade01_math, studentDetail.schoolInfo.grade01_generalScience,
-    studentDetail.schoolInfo.grade01_healthScience, studentDetail.schoolInfo.grade01_phonics, studentDetail.schoolInfo.grade01_physicalEducation,
-    studentDetail.schoolInfo.grade01_reading, studentDetail.schoolInfo.grade01_socialStudies, studentDetail.schoolInfo.grade01_spanish,
-    studentDetail.schoolInfo.grade01_spelling, studentDetail.schoolInfo.grade01_writing, studentDetail.schoolInfo.grade01_english,
-    studentDetail.schoolInfo.grade01_drawing].map(Number)
+  var periodOne = [studentDetail.schoolInfo.grade01_bible, studentDetail.schoolInfo.grade01_math, studentDetail.schoolInfo.grade01_english, studentDetail.schoolInfo.grade01_biology, studentDetail.schoolInfo.grade01_history, studentDetail.schoolInfo.grade01_computer,  studentDetail.schoolInfo.grade01_literature, studentDetail.schoolInfo.grade01_geography, studentDetail.schoolInfo.grade01_chemistry, studentDetail.schoolInfo.grade01_physics, studentDetail.schoolInfo.grade01_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
   
-  var periodTwo = [studentDetail.schoolInfo.grade02_math, studentDetail.schoolInfo.grade02_generalScience,
-        studentDetail.schoolInfo.grade02_healthScience, studentDetail.schoolInfo.grade02_phonics, studentDetail.schoolInfo.grade02_physicalEducation,
-        studentDetail.schoolInfo.grade02_reading, studentDetail.schoolInfo.grade02_socialStudies, studentDetail.schoolInfo.grade02_spanish,
-        studentDetail.schoolInfo.grade02_spelling, studentDetail.schoolInfo.grade02_writing, studentDetail.schoolInfo.grade02_english,
-        studentDetail.schoolInfo.grade02_drawing].map(Number)
+  var periodTwo = [studentDetail.schoolInfo.grade02_bible, studentDetail.schoolInfo.grade02_math, studentDetail.schoolInfo.grade02_english, studentDetail.schoolInfo.grade02_biology, studentDetail.schoolInfo.grade02_history, studentDetail.schoolInfo.grade02_computer,  studentDetail.schoolInfo.grade02_literature, studentDetail.schoolInfo.grade02_geography, studentDetail.schoolInfo.grade02_chemistry, studentDetail.schoolInfo.grade02_physics, studentDetail.schoolInfo.grade02_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
   
+  var periodThree = [studentDetail.schoolInfo.grade03_bible, studentDetail.schoolInfo.grade03_math, studentDetail.schoolInfo.grade03_english, studentDetail.schoolInfo.grade03_biology, studentDetail.schoolInfo.grade03_history, studentDetail.schoolInfo.grade03_computer,  studentDetail.schoolInfo.grade03_literature, studentDetail.schoolInfo.grade03_geography, studentDetail.schoolInfo.grade03_chemistry, studentDetail.schoolInfo.grade03_physics, studentDetail.schoolInfo.grade03_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
   
-  var periodThree = [studentDetail.schoolInfo.grade03_math, studentDetail.schoolInfo.grade03_generalScience,
-    studentDetail.schoolInfo.grade03_healthScience, studentDetail.schoolInfo.grade03_phonics, studentDetail.schoolInfo.grade03_physicalEducation,
-    studentDetail.schoolInfo.grade03_reading, studentDetail.schoolInfo.grade03_socialStudies, studentDetail.schoolInfo.grade03_spanish,
-    studentDetail.schoolInfo.grade03_spelling, studentDetail.schoolInfo.grade03_writing, studentDetail.schoolInfo.grade03_english,
-    studentDetail.schoolInfo.grade03_drawing].map(Number)
+  var periodFour = [studentDetail.schoolInfo.grade04_bible, studentDetail.schoolInfo.grade04_math, studentDetail.schoolInfo.grade04_english, studentDetail.schoolInfo.grade04_biology, studentDetail.schoolInfo.grade04_history, studentDetail.schoolInfo.grade04_computer,  studentDetail.schoolInfo.grade04_literature, studentDetail.schoolInfo.grade04_geography,  studentDetail.schoolInfo.grade04_chemistry, studentDetail.schoolInfo.grade04_physics, studentDetail.schoolInfo.grade04_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
   
-  var periodFour = [studentDetail.schoolInfo.grade04_math, studentDetail.schoolInfo.grade04_generalScience,
-    studentDetail.schoolInfo.grade04_healthScience, studentDetail.schoolInfo.grade04_phonics, studentDetail.schoolInfo.grade04_physicalEducation,
-    studentDetail.schoolInfo.grade04_reading, studentDetail.schoolInfo.grade04_socialStudies, studentDetail.schoolInfo.grade04_spanish,
-    studentDetail.schoolInfo.grade04_spelling, studentDetail.schoolInfo.grade04_writing, studentDetail.schoolInfo.grade04_english,
-    studentDetail.schoolInfo.grade04_drawing].map(Number)
-  
-    var periodFive = [studentDetail.schoolInfo.grade05_math, studentDetail.schoolInfo.grade05_generalScience,
-      studentDetail.schoolInfo.grade05_healthScience, studentDetail.schoolInfo.grade05_phonics, studentDetail.schoolInfo.grade05_physicalEducation,
-      studentDetail.schoolInfo.grade05_reading, studentDetail.schoolInfo.grade05_socialStudies, studentDetail.schoolInfo.grade05_spanish,
-      studentDetail.schoolInfo.grade05_spelling, studentDetail.schoolInfo.grade05_writing, studentDetail.schoolInfo.grade05_english,
-      studentDetail.schoolInfo.grade05_drawing].map(Number)
+    var periodFive = [studentDetail.schoolInfo.grade05_bible, studentDetail.schoolInfo.grade05_math, studentDetail.schoolInfo.grade05_english, studentDetail.schoolInfo.grade05_biology, studentDetail.schoolInfo.grade05_history, studentDetail.schoolInfo.grade05_computer,  studentDetail.schoolInfo.grade05_literature, studentDetail.schoolInfo.grade05_geography,  studentDetail.schoolInfo.grade05_chemistry, studentDetail.schoolInfo.grade05_physics, studentDetail.schoolInfo.grade05_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
     
-    var periodSix = [studentDetail.schoolInfo.grade06_math, studentDetail.schoolInfo.grade06_generalScience,
-      studentDetail.schoolInfo.grade06_healthScience, studentDetail.schoolInfo.grade06_phonics, studentDetail.schoolInfo.grade06_physicalEducation,
-      studentDetail.schoolInfo.grade06_reading, studentDetail.schoolInfo.grade06_socialStudies, studentDetail.schoolInfo.grade06_spanish,
-      studentDetail.schoolInfo.grade06_spelling, studentDetail.schoolInfo.grade06_writing, studentDetail.schoolInfo.grade06_english,
-      studentDetail.schoolInfo.grade06_drawing].map(Number)
+    var periodSix = [studentDetail.schoolInfo.grade06_bible, studentDetail.schoolInfo.grade06_math, studentDetail.schoolInfo.grade06_english, studentDetail.schoolInfo.grade06_biology, studentDetail.schoolInfo.grade06_history, studentDetail.schoolInfo.grade06_computer,  studentDetail.schoolInfo.grade06_literature, studentDetail.schoolInfo.grade06_geography, studentDetail.schoolInfo.grade06_chemistry, studentDetail.schoolInfo.grade06_physics, studentDetail.schoolInfo.grade06_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
     
-    var periodSeven = [studentDetail.schoolInfo.grade07_math, studentDetail.schoolInfo.grade07_generalScience,
-      studentDetail.schoolInfo.grade07_healthScience, studentDetail.schoolInfo.grade07_phonics, studentDetail.schoolInfo.grade07_physicalEducation,
-      studentDetail.schoolInfo.grade07_reading, studentDetail.schoolInfo.grade07_socialStudies, studentDetail.schoolInfo.grade07_spanish,
-      studentDetail.schoolInfo.grade07_spelling, studentDetail.schoolInfo.grade07_writing, studentDetail.schoolInfo.grade07_english,
-      studentDetail.schoolInfo.grade07_drawing].map(Number)
+    var periodSeven = [studentDetail.schoolInfo.grade07_bible, studentDetail.schoolInfo.grade07_math, studentDetail.schoolInfo.grade07_english, studentDetail.schoolInfo.grade07_biology, studentDetail.schoolInfo.grade07_history, studentDetail.schoolInfo.grade07_computer,  studentDetail.schoolInfo.grade07_literature, studentDetail.schoolInfo.grade07_geography, studentDetail.schoolInfo.grade07_chemistry, studentDetail.schoolInfo.grade07_physics, studentDetail.schoolInfo.grade07_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
 
-      var periodEight = [studentDetail.schoolInfo.grade08_math, studentDetail.schoolInfo.grade08_generalScience,
-        studentDetail.schoolInfo.grade08_healthScience, studentDetail.schoolInfo.grade08_phonics, studentDetail.schoolInfo.grade08_physicalEducation,
-        studentDetail.schoolInfo.grade08_reading, studentDetail.schoolInfo.grade08_socialStudies, studentDetail.schoolInfo.grade08_spanish,
-        studentDetail.schoolInfo.grade08_spelling, studentDetail.schoolInfo.grade08_writing, studentDetail.schoolInfo.grade08_english,
-        studentDetail.schoolInfo.grade08_drawing].map(Number)
+      var periodEight = [studentDetail.schoolInfo.grade08_bible, studentDetail.schoolInfo.grade08_math, studentDetail.schoolInfo.grade01_english, studentDetail.schoolInfo.grade08_biology, studentDetail.schoolInfo.grade08_history, studentDetail.schoolInfo.grade08_computer,  studentDetail.schoolInfo.grade08_literature, studentDetail.schoolInfo.grade08_geography, studentDetail.schoolInfo.grade08_chemistry, studentDetail.schoolInfo.grade08_physics, studentDetail.schoolInfo.grade01_economics, studentDetail.schoolInfo.grade01_rotc ].map(Number)
       
 
   function getSum (total, num) {
