@@ -143,6 +143,37 @@ export default class Grade extends Component {
             </div>
           </div>
         </div>
+        <div>
+          <div className='form-row'>
+            <label>Grade Type</label>
+          </div>
+          <div className='form-row'>
+            <div className='gender'>
+              <label>
+                <input name={fieldName('gradeType')}
+                  value={'A+C+O'}
+                  type='radio'
+                  checked={(props[fieldName('gradeType')] === 'A+C+O ')}
+                  key={1}
+                  onChange={handleChange}
+
+              />
+            A+C+O 
+          </label>
+              <label>
+                <input name={fieldName('gradeType')}
+                  value={'Prd.Test'}
+                  type='radio'
+                  checked={(props[fieldName('gradeType')] === 'Prd.Test')}
+                  key={2}
+                  onChange={handleChange}
+
+              />
+            Prd.Test
+           </label>
+            </div>
+          </div>
+        </div>
         <div className='form-row'>
         <label className='bat'>E.L.A.:G/c
         <input name={fieldName('elaGc')}
