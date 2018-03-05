@@ -144,6 +144,22 @@ export default class Grade extends Component {
           </div>
         </div>
         <div className='form-row'>
+        <label className='bat'>E.L.A.:G/c
+        <input name={fieldName('elaGc')}
+          value={props[fieldName('elaGc')]}
+          type='number'
+          placeholder='E.L.A.: G/c Grade'
+          onChange={handleChange}
+          />
+          </label>
+          <label className='bat'>Literature
+        <input name={fieldName('literature')}
+          value={props[fieldName('literature')]}
+          type='number'
+          placeholder='Literature Grade'
+          onChange={handleChange}
+          />
+          </label>
           <label className='bat'>Math
           <input name={fieldName('math')}
             value={props[fieldName('math')]}
@@ -152,12 +168,22 @@ export default class Grade extends Component {
             onChange={handleChange}
           />
           </label>
-          <label className='bat'>English
-        <input name={fieldName('english')}
-          value={props[fieldName('english')]}
+          <label className='bat'>Biology
+        <input name={fieldName('biology')}
+          value={props[fieldName('biology')]}
           type='number'
-          placeholder='English Grade'
+          placeholder='Biology Grade'
           onChange={handleChange}
+          />
+          </label>
+          </div>
+          <div className='form-row'>
+          <label className='bat'>Chemistry
+          <input name={fieldName('chemistry')}
+            value={props[fieldName('chemistry')]}
+            type='number'
+            placeholder='Chemistry Grade'
+            onChange={handleChange}
           />
           </label>
           <label className='bat'>Physics
@@ -168,6 +194,24 @@ export default class Grade extends Component {
           onChange={handleChange}
           />
           </label>
+          <label className='bat'>Economics
+        <input name={fieldName('economics')}
+          value={props[fieldName('economics')]}
+          type='number'
+          placeholder='Economics Grade'
+          onChange={handleChange}
+          />
+          </label> 
+          <label className='bat'>Geography
+        <input name={fieldName('geography')}
+          value={props[fieldName('geography')]}
+          type='number'
+          placeholder='Geography Grade'
+          onChange={handleChange}
+          />
+          </label>
+          </div>
+          <div className='form-row'> 
           <label className='bat'>History
         <input name={fieldName('history')}
           value={props[fieldName('history')]}
@@ -176,75 +220,41 @@ export default class Grade extends Component {
           onChange={handleChange}
           />
           </label>
-        </div>
-        <div className='form-row'>
-        <label className='bat'>Literature
-        <input name={fieldName('literature')}
-          value={props[fieldName('literature')]}
-          type='number'
-          placeholder='Literature Grade'
-          onChange={handleChange}
-          />
-          </label>
-          <label className='bat'>Computer
-        <input name={fieldName('computer')}
-          value={props[fieldName('computer')]}
-          type='number'
-          placeholder='Computer Grade'
-          onChange={handleChange}
-          />
-          </label>
-          <label className='bat'>Geography
-        <input name={fieldName('geography')}
-          value={props[fieldName('geography')]}
-          type='number'
-          placeholder='Geography Grade'
-          onChange={handleChange}
-          />
-          </label>   
-          <label className='bat'>Chemistry
-        <input name={fieldName('chemistry')}
-          value={props[fieldName('chemistry')]}
-          type='number'
-          placeholder='Chemistry Grade'
-          onChange={handleChange}
-          />
-          </label>
-        </div>
-        <div className='form-row'>
-        <label className='bat'>Biology
-        <input name={fieldName('biology')}
-          value={props[fieldName('biology')]}
-          type='number'
-          placeholder='Biology Grade'
-          onChange={handleChange}
-          />
-          </label>
-        <label className='bat'>Economics
-        <input name={fieldName('economics')}
-          value={props[fieldName('ecenomics')]}
-          type='number'
-          placeholder='Economics Grade'
-          onChange={handleChange}
-          />
-          </label>
-        <label className='bat'>Bible
+          <label className='bat'>Bible
         <input name={fieldName('bible')}
           value={props[fieldName('bible')]}
           type='number'
           placeholder='Bible Grade'
           onChange={handleChange}
           />
-          </label>
-          <label className='bat'>ROTC
-        <input name={fieldName('rotc')}
-          value={props[fieldName('rotc')]}
+          </label> 
+          <label className='bat'>Elective I
+        <input name={fieldName('elective1')}
+          value={props[fieldName('elective1')]}
           type='number'
-          placeholder='ROTC Grade'
+          placeholder='Elective I Grade'
           onChange={handleChange}
           />
-          </label>
-        </div>      
+          </label> 
+          <label className='bat'>Elective II
+        <input name={fieldName('elective2')}
+          value={props[fieldName('elective2')]}
+          type='number'
+          placeholder='Elective II Grade'
+          onChange={handleChange}
+          />
+          </label>         
+          </div>
+          <div className='form-row'> 
+          <label className='bat'>P.E/Sports
+        <input name={fieldName('physicalEducation')}
+          value={props[fieldName('physicalEducation')]}
+          type='number'
+          placeholder='P.E/Sports Grade'
+          onChange={handleChange}
+          />
+          </label> 
+        </div>     
       </div>
     )
   }
