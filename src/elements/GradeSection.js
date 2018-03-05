@@ -13,30 +13,40 @@ export default class GradeSection extends Component {
   render () {
     let props = this.props
     let GradeList = props.grades.map((grade) => {
-      if (!grade.hidden && props.class === 'Kindergarten One' || props.class === 'Kindergarten Two') {
+        if (!grade.hidden && props.class === 'Kindergarten One' ) {
         return (<Gradek1_k2 {...grade} {...props} />)
       }
-
-      if (!grade.hidden && props.class === 'Grade One' || props.class === 'Grade Two' || props.class === 'Grade Three') {
+        if (!grade.hidden &&  props.class === 'Kindergarten Two') {
+        return (<Gradek1_k2 {...grade} {...props} />)
+      }
+        if (!grade.hidden &&  props.class === 'Grade One') {
+        return (<Grade1_3 {...grade} {...props} />)
+      } if (!grade.hidden &&  props.class === 'Grade Two') {
+        return (<Grade1_3 {...grade} {...props} />)
+      } if (!grade.hidden &&  props.class === 'Grade Three') {
         return (<Grade1_3 {...grade} {...props} />)
       }
-
-      if (!grade.hidden && props.class === 'Grade Four' || props.class === 'Grade Five') {
+        if (!grade.hidden &&  props.class === 'Grade Four') {
         return (<Grade4_5 {...grade} {...props} />)
-      }
-
-      if (!grade.hidden && props.class === 'Grade Six') {
+      } if (!grade.hidden &&  props.class === 'Grade Five') {
+        return (<Grade4_5 {...grade} {...props} />)
+      } if (!grade.hidden &&  props.class === 'Grade Six') {
         return (<Grade6 {...grade} {...props} />)
       }
-
-      if (!grade.hidden && props.class === 'Grade Seven' || props.class === 'Grade Eight' || props.class === 'Grade Nine') {
+        if (!grade.hidden &&  props.class === 'Grade Seven') {
+        return (<Grade7_9 {...grade} {...props} />)
+      } if (!grade.hidden &&  props.class === 'Grade Eight') {
+        return (<Grade7_9 {...grade} {...props} />)
+      } if (!grade.hidden &&  props.class === 'Grade Nine') {
         return (<Grade7_9 {...grade} {...props} />)
       }
-
-      if (!grade.hidden && props.class === 'Grade Ten' || props.class === 'Grade Eleven' || props.class === 'Grade Twelve') {
+        if (!grade.hidden &&  props.class === 'Grade Ten') {
         return (<Grade10_12 {...grade} {...props} />)
-      }
-      
+      } if (!grade.hidden &&  props.class === 'Grade Eleven') {
+        return (<Grade10_12 {...grade} {...props} />)
+      } if (!grade.hidden &&  props.class === 'Grade Twelve') {
+        return (<Grade10_12 {...grade} {...props} />)
+      }     
     })
 
     return (
