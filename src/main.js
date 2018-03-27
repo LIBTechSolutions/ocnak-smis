@@ -57,27 +57,6 @@ if (shouldQuit) {
 
 app.on('ready', createWindow)
 
-autoUpdater.on('update-available', () => {
-  console.log('update available')
-})
-
-autoUpdater.on('checking-for-update', () => {
-  console.log('checking for update')
-})
-
-autoUpdater.on('update-not-available', () => {
-  console.log('update not available')
-})
-
-autoUpdater.on('update-downloaded', (e) => {
-  console.log(e)
-  autoUpdater.quitAndInstall()
-})
-
-autoUpdater.setFeedURL('http://example.com')
-
-autoUpdater.checkForUpdates()
-
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
