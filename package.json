@@ -1,7 +1,7 @@
 {
   "name": "school-sync",
   "productName": "School Sync",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Techsol",
   "description": "School Information Management System",
   "main": "src/main.js",

@@ -7,6 +7,7 @@ const rimraf = require('rimraf')
 const url = require('url')
 
 let win
+const appVersion = app.getVersion()
 
 let appPath = isDev()
   ? 'index-dev.html'
@@ -18,6 +19,7 @@ function createWindow () {
     height: 900,
     minWidth: 880,
     minHeight: 630,
+    title: `School Sync v${appVersion}`,
     icon: 'resources/techsol-new-logo.jpg',
     backgroundColor: 'grey'
   })
